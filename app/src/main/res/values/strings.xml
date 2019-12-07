@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">hookahApp</string>
+    <string name="guest">Гость</string>
+    <string name="discount">Ваша скидка по карте:</string>
+    <string name="go_to_profile">Перейти в профиль</string>
+    <string name="menu_string">Меню</string>
+    <string name="deal_string">Акции</string>
+    <string name="card_string">Карта</string>
+    <string name="parking_string">Парковка</string>
+    <string name="hookah">Кальян</string>
+</resources>
