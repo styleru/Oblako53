@@ -12,20 +12,37 @@ import android.widget.TextView;
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
+
+import javax.inject.Inject;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import toothpick.Scope;
+import toothpick.Toothpick;
 
 
 public class MainActivity extends MvpAppCompatActivity implements MainActivityVew{
 
+
+//    @Inject
     @InjectPresenter
     MainActivityPresenter presenter;
+
+//    @Inject
+    MenuPageAdapter menuPageAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        ButterKnife.bind(this);
+//        Scope appScope = Toothpick.openScope(this);
+//        Toothpick.inject(this, appScope);
         setContentView(R.layout.activity_main);
-        ViewPager pager = (ViewPager)findViewById(R.id.viewPager);
-        pager.setAdapter(new MenuPageAdapter(getSupportFragmentManager()));
+        ViewPager viewPager = (ViewPager)findViewById(R.id.viewPager);
+        menuPageAdapter = new MenuPageAdapter(getSupportFragmentManager(), getApplicationContext());
+        viewPager.setAdapter(menuPageAdapter);
     }
+
+
 }

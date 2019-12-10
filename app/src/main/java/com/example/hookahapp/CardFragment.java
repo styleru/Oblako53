@@ -1,4 +1,9 @@
 package com.example.hookahapp;
 
-public class CardFragment {
+import androidx.fragment.app.Fragment;
+
+public class CardFragment extends Fragment {
+    public static CardFragment newInstance(){
+        return new CardFragment();
+    }
 }

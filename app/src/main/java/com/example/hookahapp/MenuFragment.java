@@ -11,18 +11,18 @@ import androidx.fragment.app.Fragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public class MenuFragment extends Fragment {
 
+    private Unbinder unbinder;
 
-    public static DealFragment newInstance(){
-        return new DealFragment();
+    public static MenuFragment newInstance(){
+        return new MenuFragment();
     }
 
     public MenuFragment() {}
 
-    @BindView(R.id.menu)
-    TextView menu;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -32,16 +32,11 @@ public class MenuFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
-        menu.setTag(menu.getBackground());
-        menu.setBackground(getResources().getDrawable(R.drawable.menu_rectangle));
-        View view = inflater.inflate(R.layout.deal_fragment, container, false);
-        ButterKnife.bind(this, view);
-        return view;
+        return inflater.inflate(R.layout.deal_fragment, container, false);
     }
 
     @Override
     public void onDestroyView() {
-        menu.setBackground((Drawable) menu.getTag());
         super.onDestroyView();
 
     }
