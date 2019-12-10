@@ -17,6 +17,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import toothpick.Scope;
 import toothpick.Toothpick;
 
@@ -42,7 +43,19 @@ public class MainActivity extends MvpAppCompatActivity implements MainActivityVe
         ViewPager viewPager = (ViewPager)findViewById(R.id.viewPager);
         menuPageAdapter = new MenuPageAdapter(getSupportFragmentManager(), getApplicationContext());
         viewPager.setAdapter(menuPageAdapter);
+        TextView deal = (TextView) findViewById(R.id.deal);
+        deal.setOnClickListener(v -> {menuPageAdapter.getItem(1);
+            deal.setTag(deal.getBackground());
+            deal.setBackground(getApplicationContext().getResources().getDrawable(R.drawable.menu_rectangle));});
+
     }
 
+    @OnClick(R.id.deal)
+    void dealButtonClicked(){
+        TextView deal = (TextView) findViewById(R.id.deal);
+        deal.setTag(deal.getBackground());
+        deal.setBackground(getApplicationContext().getResources().getDrawable(R.drawable.menu_rectangle));
+        menuPageAdapter.getItem(1);
 
+    }
 }
