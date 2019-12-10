@@ -29,12 +29,7 @@ class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapter.ViewH
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        DealDTO temp = new DealDTO();
-        temp.setDealName("aaaaaaaaaaaaaa");
-        data.add(temp);
-        data.add(temp);
-        data.add(temp);
-        data.add(temp);
+
         Log.d("qqqqqq", String.valueOf(data.size()));
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.deal_item, parent, false);
@@ -53,6 +48,12 @@ class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapter.ViewH
 //    @Inject
     public DealRecyclerAdapter(Context context){
         this.appContext = context;
+        DealDTO temp = new DealDTO();
+        temp.setDealName("aaaaaaaaaaaaaa");
+        data.add(temp);
+        data.add(temp);
+        data.add(temp);
+        data.add(temp);
     }
 
     @Override

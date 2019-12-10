@@ -10,6 +10,10 @@ import androidx.viewpager.widget.ViewPager;
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -33,7 +37,11 @@ public class MainActivity extends MvpAppCompatActivity implements MainActivityVe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         ViewPager viewPager = findViewById(R.id.viewPager);
-        menuPageAdapter = new MenuPageAdapter(getSupportFragmentManager(), getApplicationContext());
+        TextView[] tmp = {findViewById(R.id.menu), findViewById(R.id.card), findViewById(R.id.card),
+                findViewById(R.id.parking)};
+        menuPageAdapter = new MenuPageAdapter(getSupportFragmentManager(), getApplicationContext(),
+                new ArrayList<TextView>(Arrays.asList(tmp))
+                );
         viewPager.setAdapter(menuPageAdapter);
         viewPager.setCurrentItem(0);
         TextView deal = findViewById(R.id.deal);
