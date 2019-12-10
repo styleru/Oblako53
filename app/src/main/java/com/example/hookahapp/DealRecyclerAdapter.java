@@ -1,6 +1,7 @@
 package com.example.hookahapp;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapter.ViewH
         data.add(temp);
         data.add(temp);
         data.add(temp);
+        Log.d("qqqqqq", String.valueOf(data.size()));
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.deal_item, parent, false);
         return new ViewHolder(v);

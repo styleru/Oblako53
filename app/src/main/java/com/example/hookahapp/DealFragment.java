@@ -3,6 +3,7 @@ package com.example.hookahapp;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +30,7 @@ public class DealFragment extends Fragment {
     private Context appContext;
 
 //    @Inject
-    DealRecyclerAdapter dealRecyclerAdapter;
+
 
     public static DealFragment newInstance(Context appContext){
         return new DealFragment(appContext);
@@ -43,17 +44,20 @@ public class DealFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        Scope appScope = Toothpick.openScope("APP");
-        Toothpick.inject(this, appScope);
+//        Scope appScope = Toothpick.openScope("APP");
+//        Toothpick.inject(this, appScope);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
+        Log.d("bbbbbbb", "2");
         View view = inflater.inflate(R.layout.deal_fragment, container, false);
         recyclerView = view.findViewById(R.id.deal_recycler);
-        recyclerView.setLayoutManager(new LinearLayoutManager(appContext));
+        DealRecyclerAdapter dealRecyclerAdapter = new DealRecyclerAdapter(appContext);
         recyclerView.setAdapter(dealRecyclerAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(appContext));
+
         return view;
     }
 
