@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -29,6 +30,11 @@ public class MainActivity extends MvpAppCompatActivity implements MainActivityVe
 //    @Inject
     MenuPageAdapter menuPageAdapter;
 
+    @BindViews({R.id.menu, R.id.deal, R.id.card, R.id.parking}) List<TextView> headers;
+
+    @BindView(R.id.viewPager)
+    ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,28 +42,49 @@ public class MainActivity extends MvpAppCompatActivity implements MainActivityVe
 //        Toothpick.inject(this, appScope);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        ViewPager viewPager = findViewById(R.id.viewPager);
-        TextView[] tmp = {findViewById(R.id.menu), findViewById(R.id.card), findViewById(R.id.card),
-                findViewById(R.id.parking)};
-        menuPageAdapter = new MenuPageAdapter(getSupportFragmentManager(), getApplicationContext(),
-                new ArrayList<TextView>(Arrays.asList(tmp))
-                );
+//        TextView deal = findViewById(R.id.deal);
+//        TextView[] tmp = {findViewById(R.id.menu), deal, findViewById(R.id.card),
+//                findViewById(R.id.parking)};
+//        new ArrayList<TextView>(Arrays.asList(tmp))
+        menuPageAdapter = new MenuPageAdapter(getSupportFragmentManager(), this);
         viewPager.setAdapter(menuPageAdapter);
+        viewPager.addOnPageChangeListener(new ViewPagerPageChangeListener(
+//                new ArrayList<TextView>(Arrays.asList(tmp)), this
+                headers, this
+        ));
         viewPager.setCurrentItem(0);
-        TextView deal = findViewById(R.id.deal);
-        deal.setOnClickListener(v -> {menuPageAdapter.getItem(1);
-            deal.setTag(deal.getBackground());
-            deal.setBackground(getApplicationContext().getResources().getDrawable(R.drawable.menu_rectangle));});
-
     }
 
-//    @OnClick(R.id.deal)
-//    public void dealButtonClicked(){
-//        Log.d("aaaaaa", "1");
-//        TextView deal = findViewById(R.id.deal);
-//        deal.setTag(deal.getBackground());
-//        deal.setBackground(getApplicationContext().getResources().getDrawable(R.drawable.menu_rectangle));
-//        menuPageAdapter.getItem(1);
+//    @OnClick({R.id.menu, R.id.deal, R.id.card, R.id.parking})
+//    public void headerClicked(TextView v){
+//        Log.d("headerClicked", String.valueOf(v.getId()));
 //
+//        switch (v.getId()){
+//            case R.id.menu: viewPager.setCurrentItem(0);
+//            case R.id.deal: viewPager.setCurrentItem(1);
+//            case R.id.card: viewPager.setCurrentItem(2);
+//            case R.id.parking: viewPager.setCurrentItem(3);
+//        }
 //    }
+
+    @OnClick(R.id.menu)
+    public void menuButtonClicked(){
+        viewPager.setCurrentItem(0);
+    }
+
+    @OnClick(R.id.deal)
+    public void dealButtonClicked(){
+        viewPager.setCurrentItem(1);
+    }
+
+    @OnClick(R.id.card)
+    public void cardButtonClicked(){
+        viewPager.setCurrentItem(2);
+    }
+
+    @OnClick(R.id.parking)
+    public void parkingButtonClicked(){
+        viewPager.setCurrentItem(3);
+    }
+
 }
