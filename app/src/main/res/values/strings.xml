@@ -8,4 +8,11 @@
     <string name="card_string">Карта</string>
     <string name="parking_string">Парковка</string>
     <string name="hookah">Кальян</string>
+    <string name="next_string">Далее</string>
+    <string name="free_parking_string">Паркуй авто \n бесплатно</string>
+    <string name="deals_string">Будь в курсе \nсобытий</string>
+    <string name="enjoy_moment_string">И наслаждайся \nмоментом</string>
+    <string name="already_have_account">Уже есть аккаунт?</string>
+    <string name="enter">Войти.</string>
+    <string name="register_string">Зарегистрироваться</string>
 </resources>

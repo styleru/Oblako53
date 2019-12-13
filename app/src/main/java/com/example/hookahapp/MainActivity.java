@@ -40,6 +40,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainActivityVe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
@@ -53,6 +54,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainActivityVe
         viewPager.setCurrentItem(0, false);
 
     }
+
 
     @OnClick(R.id.menu)
     public void menuButtonClicked(TextView textView){
