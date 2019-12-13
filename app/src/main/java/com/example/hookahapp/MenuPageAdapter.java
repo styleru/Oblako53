@@ -2,21 +2,17 @@ package com.example.hookahapp;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import java.util.ArrayList;
-
 public class MenuPageAdapter extends FragmentPagerAdapter {
 
     private Context appContext;
-//    @Inject
-    MenuPageAdapter(FragmentManager fm, Context appContext) {
-        super(fm);
+    public MenuPageAdapter(@NonNull FragmentManager fm, int behavior, Context appContext) {
+        super(fm, behavior);
         this.appContext = appContext;
     }
 
@@ -32,7 +28,7 @@ public class MenuPageAdapter extends FragmentPagerAdapter {
             }
             case 1:{
                 Log.d("MenuPageAdapter", "1");
-                return DealFragment.newInstance(appContext);
+                return DealFragment.newInstance();
             }
             case 2: {
                 Log.d("MenuPageAdapter", "2");

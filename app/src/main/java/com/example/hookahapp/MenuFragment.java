@@ -1,6 +1,5 @@
 package com.example.hookahapp;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,13 +8,8 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-import butterknife.Unbinder;
-
 public class MenuFragment extends Fragment {
 
-    private Unbinder unbinder;
 
     public static MenuFragment newInstance(){
         return new MenuFragment();

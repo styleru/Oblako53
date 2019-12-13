@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class CardFragment extends Fragment {
@@ -25,10 +27,14 @@ public class CardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
 
-        View v = inflater.inflate(R.layout.menu_fragment, container, false);
-        TextView tmp = v.findViewById(R.id.a);
+        return inflater.inflate(R.layout.menu_fragment, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        TextView tmp = view.findViewById(R.id.a);
         tmp.setText("card");
-        return v;
     }
 
     @Override

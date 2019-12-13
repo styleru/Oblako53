@@ -1,63 +1,56 @@
 package com.example.hookahapp;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.arellomobile.mvp.MvpAppCompatFragment;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.Unbinder;
-import toothpick.Scope;
 import toothpick.Toothpick;
 
 public class DealFragment extends Fragment {
 
-    private Unbinder unbinder;
-    private RecyclerView recyclerView;
-    private Context appContext;
+    @BindView(R.id.deal_recycler)
+    RecyclerView recyclerView;
 
-//    @Inject
+    @Inject
+    DealRecyclerAdapter dealRecyclerAdapter;
 
-
-    public static DealFragment newInstance(Context appContext){
-        return new DealFragment(appContext);
+    public static DealFragment newInstance(){
+        return new DealFragment();
     }
 
-//    @Inject
-    public DealFragment(Context appContext) {
-        this.appContext = appContext;
-    }
+    public DealFragment() {}
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-//        Scope appScope = Toothpick.openScope("APP");
-//        Toothpick.inject(this, appScope);
+
+        Toothpick.inject(this, Toothpick.openScope("App"));
+}
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        recyclerView.setAdapter(dealRecyclerAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
-        Log.d("bbbbbbb", "2");
         View view = inflater.inflate(R.layout.deal_fragment, container, false);
-        recyclerView = view.findViewById(R.id.deal_recycler);
-        DealRecyclerAdapter dealRecyclerAdapter = new DealRecyclerAdapter(appContext);
-        recyclerView.setAdapter(dealRecyclerAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(appContext));
-
+        ButterKnife.bind(this, view);
         return view;
     }
 

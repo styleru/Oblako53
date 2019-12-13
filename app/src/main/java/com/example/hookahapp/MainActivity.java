@@ -1,33 +1,33 @@
 package com.example.hookahapp;
 
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.viewpager.widget.ViewPager;
 
-
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import toothpick.Scope;
+import toothpick.Toothpick;
 
 
 public class MainActivity extends MvpAppCompatActivity implements MainActivityVew{
 
-
-//    @Inject
+    @Inject
     @InjectPresenter
     MainActivityPresenter presenter;
 
-//    @Inject
     MenuPageAdapter menuPageAdapter;
 
     @BindViews({R.id.menu, R.id.deal, R.id.card, R.id.parking}) List<TextView> headers;
@@ -35,56 +35,65 @@ public class MainActivity extends MvpAppCompatActivity implements MainActivityVe
     @BindView(R.id.viewPager)
     ViewPager viewPager;
 
+    @BindView(R.id.avatar_pic)
+    ImageView avatarPic;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        Scope appScope = Toothpick.openScope(this);
-//        Toothpick.inject(this, appScope);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-//        TextView deal = findViewById(R.id.deal);
-//        TextView[] tmp = {findViewById(R.id.menu), deal, findViewById(R.id.card),
-//                findViewById(R.id.parking)};
-//        new ArrayList<TextView>(Arrays.asList(tmp))
-        menuPageAdapter = new MenuPageAdapter(getSupportFragmentManager(), this);
+        Scope appScore = Toothpick.openScope("App");
+        Toothpick.inject(this, appScore);
+        menuPageAdapter = new MenuPageAdapter(getSupportFragmentManager(), 0, getApplicationContext());
         viewPager.setAdapter(menuPageAdapter);
         viewPager.addOnPageChangeListener(new ViewPagerPageChangeListener(
-//                new ArrayList<TextView>(Arrays.asList(tmp)), this
-                headers, this
-        ));
-        viewPager.setCurrentItem(0);
+                headers, getApplicationContext()));
+        headers.get(0).setBackground(getResources().getDrawable(R.drawable.menu_rectangle_pressed));
+        viewPager.setCurrentItem(0, false);
+
     }
 
-//    @OnClick({R.id.menu, R.id.deal, R.id.card, R.id.parking})
-//    public void headerClicked(TextView v){
-//        Log.d("headerClicked", String.valueOf(v.getId()));
-//
-//        switch (v.getId()){
-//            case R.id.menu: viewPager.setCurrentItem(0);
-//            case R.id.deal: viewPager.setCurrentItem(1);
-//            case R.id.card: viewPager.setCurrentItem(2);
-//            case R.id.parking: viewPager.setCurrentItem(3);
-//        }
-//    }
-
     @OnClick(R.id.menu)
-    public void menuButtonClicked(){
-        viewPager.setCurrentItem(0);
+    public void menuButtonClicked(TextView textView){
+        clearMenuHeadersBackground();
+        textView.setBackground(getResources().getDrawable(R.drawable.menu_rectangle_pressed));
+        viewPager.setCurrentItem(0, false);
     }
 
     @OnClick(R.id.deal)
-    public void dealButtonClicked(){
-        viewPager.setCurrentItem(1);
+    public void dealButtonClicked(TextView textView){
+        clearMenuHeadersBackground();
+        textView.setBackground(getResources().getDrawable(R.drawable.menu_rectangle_pressed));
+        viewPager.setCurrentItem(1, false);
     }
 
     @OnClick(R.id.card)
-    public void cardButtonClicked(){
-        viewPager.setCurrentItem(2);
+    public void cardButtonClicked(TextView textView){
+        clearMenuHeadersBackground();
+        textView.setBackground(getResources().getDrawable(R.drawable.menu_rectangle_pressed));
+        viewPager.setCurrentItem(2, false);
     }
 
     @OnClick(R.id.parking)
-    public void parkingButtonClicked(){
-        viewPager.setCurrentItem(3);
+    public void parkingButtonClicked(TextView textView){
+        clearMenuHeadersBackground();
+        textView.setBackground(getResources().getDrawable(R.drawable.menu_rectangle_default));
+        viewPager.setCurrentItem(3, false);
+    }
+
+    @Override
+    public void loadPhoto(String pictureUrl) {
+        Glide.with(this)
+                .load(pictureUrl)
+                .into(avatarPic);
+    }
+
+    private void clearMenuHeadersBackground(){
+        headers.get(0).setBackground(getResources().getDrawable(R.drawable.menu_rectangle_default));
+        headers.get(1).setBackground(getResources().getDrawable(R.drawable.menu_rectangle_default));
+        headers.get(2).setBackground(getResources().getDrawable(R.drawable.menu_rectangle_default));
+        headers.get(3).setBackground(getResources().getDrawable(R.drawable.menu_rectangle_default));
     }
 
 }

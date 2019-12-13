@@ -5,7 +5,8 @@ import com.arellomobile.mvp.MvpPresenter;
 import javax.inject.Inject;
 
 public class MainActivityPresenter extends MvpPresenter<MainActivityVew> {
-//    @Inject
+
+    @Inject
     public MainActivityPresenter(){
     }
 }

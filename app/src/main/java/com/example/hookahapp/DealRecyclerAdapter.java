@@ -1,7 +1,5 @@
 package com.example.hookahapp;
 
-import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,25 +10,23 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
-import Data.DealDTO;
+import data.DealDTO;
 
 class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapter.ViewHolder> {
 
     private List<DealDTO> data = new ArrayList<>();
-    private Context appContext;
 
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        Log.d("qqqqqq", String.valueOf(data.size()));
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.deal_item, parent, false);
         return new ViewHolder(v);
@@ -40,14 +36,13 @@ class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapter.ViewH
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         DealDTO deal = data.get(position);
         holder.dealName.setText(deal.getDealName());
-//        Glide.with(appContext)
-//                .load(deal.getPicAdress())
-//                .into(holder.dealImage);
+        Glide.with(holder.itemView.getContext())
+                .load(deal.getPicAdress())
+                .apply(RequestOptions.circleCropTransform())
+                .into(holder.dealImage);
     }
-
-//    @Inject
-    public DealRecyclerAdapter(Context context){
-        this.appContext = context;
+    @Inject
+    public DealRecyclerAdapter(){
         DealDTO temp = new DealDTO();
         temp.setDealName("aaaaaaaaaaaaaa");
         data.add(temp);
