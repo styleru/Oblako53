@@ -1,5 +1,6 @@
 package com.example.hookahapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,11 @@ public class OnboardingActivity4 extends AppCompatActivity {
 
     @OnClick(R.id.register)
     void registerClicked(){
-        finish();
+        startActivity(new Intent(this, RegistrationActivity1.class));
+//        finish();
+    }
+    @OnClick(R.id.enter_account)
+    void enterAccountClicked(){
+
     }
 }

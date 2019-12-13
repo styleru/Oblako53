@@ -15,4 +15,9 @@
     <string name="already_have_account">Уже есть аккаунт?</string>
     <string name="enter">Войти.</string>
     <string name="register_string">Зарегистрироваться</string>
+    <string name="continue_string">Продолжить</string>
+    <string name="input_string">Ввести</string>
+    <string name="enter_your_telephone_string">Укажите свой телефон</string>
+    <string name="enter_password_string">Введите пароль</string>
+    <string name="min_6_symbols_string">Минимум 6 символов</string>
 </resources>

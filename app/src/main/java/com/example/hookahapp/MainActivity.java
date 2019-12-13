@@ -1,5 +1,6 @@
 package com.example.hookahapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -42,6 +43,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainActivityVe
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
+        startActivity(new Intent(this, OnboardingActivity1.class));
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         Scope appScore = Toothpick.openScope("App");
