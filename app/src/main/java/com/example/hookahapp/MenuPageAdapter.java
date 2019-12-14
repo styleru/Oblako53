@@ -1,7 +1,6 @@
 package com.example.hookahapp;
 
 import android.content.Context;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -22,20 +21,15 @@ public class MenuPageAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:{
-
-                Log.d("MenuPageAdapter", "0");
                 return MenuFragment.newInstance();
             }
             case 1:{
-                Log.d("MenuPageAdapter", "1");
                 return DealFragment.newInstance();
             }
             case 2: {
-                Log.d("MenuPageAdapter", "2");
                 return CardFragment.newInstance();
             }
             case 3: {
-                Log.d("MenuPageAdapter", "3");
                 return ParkingFragment.newInstance();
             }
             default: return MenuFragment.newInstance();

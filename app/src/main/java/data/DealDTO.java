@@ -1,16 +1,16 @@
 package data;
 
 public class DealDTO {
-    private String picAdress;
+    private int picUrl;
     private String dealName;
 
     public DealDTO(){
-        this.picAdress = "";
+        this.picUrl = 0;
         this.dealName = "";
     }
 
-    public DealDTO(String picAdress, String dealName){
-        this.picAdress = picAdress;
+    public DealDTO(int picUrl, String dealName){
+        this.picUrl = picUrl;
         this.dealName = dealName;
     }
 
@@ -22,11 +22,11 @@ public class DealDTO {
         this.dealName = dealName;
     }
 
-    public String getPicAdress() {
-        return picAdress;
+    public int getPicUrl() {
+        return picUrl;
     }
 
-    public void setPicAdress(String picAdress) {
-        this.picAdress = picAdress;
+    public void setPicUrl(int picUrl) {
+        this.picUrl = picUrl;
     }
 }

@@ -52,6 +52,7 @@ public class MainActivity extends MvpAppCompatActivity implements MainActivityVe
         viewPager.setAdapter(menuPageAdapter);
         viewPager.addOnPageChangeListener(new ViewPagerPageChangeListener(
                 headers, getApplicationContext()));
+        loadPhoto(String.valueOf(R.drawable.avatar));
         headers.get(0).setBackground(getResources().getDrawable(R.drawable.menu_rectangle_pressed));
         viewPager.setCurrentItem(0, false);
 
@@ -89,7 +90,8 @@ public class MainActivity extends MvpAppCompatActivity implements MainActivityVe
     @Override
     public void loadPhoto(String pictureUrl) {
         Glide.with(this)
-                .load(pictureUrl)
+                .load(R.drawable.avatar)
+                .circleCrop()
                 .into(avatarPic);
     }
 

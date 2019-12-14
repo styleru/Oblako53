@@ -15,6 +15,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import data.DealDTO;
 import toothpick.Toothpick;
 
 public class DealFragment extends Fragment {
@@ -44,6 +45,17 @@ public class DealFragment extends Fragment {
 
         recyclerView.setAdapter(dealRecyclerAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+        recyclerView.addItemDecoration(new DealRecyclerItemDecoration(33));
+        DealDTO temp = new DealDTO();
+        temp.setDealName("aaaaaaaaaaaaaa");
+        temp.setPicUrl(R.drawable.avatar);
+        DealDTO temp1 = new DealDTO();
+        temp1.setDealName("иииииииии");
+        temp1.setPicUrl(R.drawable.avatar);
+        dealRecyclerAdapter.addNewDeal(temp);
+        dealRecyclerAdapter.addNewDeal(temp1);
+        dealRecyclerAdapter.notifyDataSetChanged();
+
     }
 
     @Override

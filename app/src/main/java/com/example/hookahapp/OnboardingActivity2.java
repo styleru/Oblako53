@@ -19,7 +19,7 @@ public class OnboardingActivity2 extends AppCompatActivity {
 
     @OnClick(R.id.next_screen2)
     void nextScreenClicked(){
-        startActivity(new Intent(this, OnboardingActivity3.class));
+        startActivity(new Intent(getApplicationContext(), OnboardingActivity3.class));
         finish();
     }
 }

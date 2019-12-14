@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,19 +36,11 @@ class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapter.ViewH
         DealDTO deal = data.get(position);
         holder.dealName.setText(deal.getDealName());
         Glide.with(holder.itemView.getContext())
-                .load(deal.getPicAdress())
-                .apply(RequestOptions.circleCropTransform())
+                .load(deal.getPicUrl())
                 .into(holder.dealImage);
     }
     @Inject
-    public DealRecyclerAdapter(){
-        DealDTO temp = new DealDTO();
-        temp.setDealName("aaaaaaaaaaaaaa");
-        data.add(temp);
-        data.add(temp);
-        data.add(temp);
-        data.add(temp);
-    }
+    public DealRecyclerAdapter(){}
 
     @Override
     public int getItemCount() {
@@ -72,8 +63,10 @@ class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapter.ViewH
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
+            itemView.setClipToOutline(true);
             dealName = itemView.findViewById(R.id.deal_item_text);
             dealImage = itemView.findViewById(R.id.deal_item_image);
+
         }
     }
 }

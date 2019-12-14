@@ -3,14 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginStart="29dp"
+    android:layout_marginEnd="29dp"
     android:background="@drawable/deal_item_rectangle"
     android:id="@+id/deal_item">
     <ImageView
         android:id="@+id/deal_item_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:src="@tools:sample/avatars"/>
     <TextView
         android:id="@+id/deal_item_text"
@@ -21,7 +23,7 @@
         android:textColor="@color/textColour"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:layout_width="wrap_content"
         tools:text="@tools:sample/full_names"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

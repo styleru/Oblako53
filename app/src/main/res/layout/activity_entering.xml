@@ -4,51 +4,73 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    android:id="@+id/registration_layout_2">
+    android:id="@+id/authorisation_layout">
 
     <TextView
-        android:id="@+id/enter_password"
+        android:id="@+id/authorise"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="@string/enter_password_string"
+        android:text="@string/authorisation_string"
         android:textSize="32sp"
         android:textColor="@color/textColour"
-        android:layout_marginEnd="127dp"
+        android:layout_marginEnd="12dp"
         android:layout_marginTop="64dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <View
-        android:id="@+id/arrow_back_registration"
-        android:layout_width="8dp"
-        android:layout_height="16dp"
+        android:id="@+id/arrow_back_authorisation"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="21dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="380dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/arrow_back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/authorise"/>
 
     <EditText
-        android:id="@+id/password_edit"
+        android:id="@+id/telephone_edit_enter_activity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="36dp"
         android:singleLine="true"
-        android:hint="@string/min_6_symbols_string"
+        android:hint="@string/telephone_string"
+        android:textColorHint="@color/textColour"
+        android:textColor="@color/textColour"
+        android:textSize="18sp"
+        android:inputType="phone"
+        app:layout_constraintTop_toBottomOf="@id/authorise"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/password_edit_enter_activity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="32dp"
+        android:singleLine="true"
+        android:hint="@string/password_string"
         android:textColorHint="@color/textColour"
         android:textColor="@color/textColour"
         android:textSize="18sp"
         android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@id/enter_password"
+        app:layout_constraintTop_toBottomOf="@id/telephone_edit_enter_activity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+
     <TextView
-        android:id="@+id/continue_registration_2"
+        android:id="@+id/authorisation_continue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -65,5 +87,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/forgot_password_string"
+        android:textColor="@color/red_text"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/authorisation_continue"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

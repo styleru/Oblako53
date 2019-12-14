@@ -22,6 +22,10 @@
         <activity android:name=".OnboardingActivity4"/>
         <activity android:name=".RegistrationActivity1"
             android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".RegistrationActivity2"
+            android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".AuthorisationActivity"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>

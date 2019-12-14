@@ -19,11 +19,12 @@ public class OnboardingActivity4 extends AppCompatActivity {
 
     @OnClick(R.id.register)
     void registerClicked(){
-        startActivity(new Intent(this, RegistrationActivity1.class));
-//        finish();
+        startActivity(new Intent(getApplicationContext(), RegistrationActivity1.class));
+        finish();
     }
     @OnClick(R.id.enter_account)
     void enterAccountClicked(){
-
+        startActivity(new Intent(getApplicationContext(), AuthorisationActivity.class));
+        finish();
     }
 }
