@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".MainActivity">
+    tools:context=".mainpage.MainPageActivity">
 
     <TextView
         android:id="@+id/name"
@@ -13,27 +13,26 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="35dp"
+        android:layout_marginEnd="67dp"
         android:gravity="top"
         android:text="@string/guest"
         android:textColor="@color/textColour"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/guideline"
+        app:layout_constraintEnd_toStartOf="@id/avatar_pic"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/avatar_pic"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="76dp"
+        android:layout_height="76dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="35dp"
         android:layout_marginEnd="29dp"
         android:layout_marginBottom="44dp"
         tools:src="@tools:sample/avatars"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/name"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/menu"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/discount"
@@ -42,11 +41,12 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="28dp"
         android:layout_marginTop="9dp"
+        android:layout_marginEnd="67dp"
         android:gravity="top"
         android:text="@string/discount"
         android:textColor="@color/textColour"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/guideline"
+        app:layout_constraintEnd_toStartOf="@id/avatar_pic"
         app:layout_constraintTop_toBottomOf="@id/name" />
 
 
@@ -57,11 +57,12 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="28dp"
         android:layout_marginTop="9dp"
+        android:layout_marginEnd="67dp"
         android:gravity="top"
         android:text="@string/go_to_profile"
         android:textColor="@color/textColour"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/guideline"
+        app:layout_constraintEnd_toStartOf="@id/avatar_pic"
         app:layout_constraintTop_toBottomOf="@id/discount" />
 
 
@@ -119,6 +120,8 @@
         android:textSize="18sp"
         android:gravity="center"
         android:layout_marginEnd="40dp"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
         android:background="@drawable/menu_rectangle_default"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBaseline_toBaselineOf="@id/menu"/>
@@ -126,17 +129,10 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="35dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/menu" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.6" />
-
+        app:layout_constraintTop_toBottomOf="@id/menu"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

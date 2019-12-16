@@ -1,4 +1,4 @@
-package com.example.hookahapp;
+package com.example.hookahapp.mainpage.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.hookahapp.R;
 
 import javax.inject.Inject;
 
@@ -29,8 +31,6 @@ public class DealFragment extends Fragment {
     public static DealFragment newInstance(){
         return new DealFragment();
     }
-
-    public DealFragment() {}
 
     @Override
     public void onCreate(Bundle savedInstanceState){

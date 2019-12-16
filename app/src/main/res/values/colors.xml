@@ -5,6 +5,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="background">#191A1E</color>
     <color name="textColour">#FFFFFF</color>
+    <color name="hintTextColour">#50FFFFFF</color>
     <color name="darkTextColor">#1E272E</color>
     <color name="splashScreenColor">#000000</color>
     <color name="red_text">#EE1E23</color>

@@ -1,10 +1,10 @@
-package com.example.hookahapp;
+package com.example.hookahapp.registration;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.hookahapp.R;
 import com.mikepenz.materialize.util.KeyboardUtil;
 
 import butterknife.ButterKnife;
@@ -23,12 +23,13 @@ public class RegistrationActivity2 extends AppCompatActivity {
 
     @OnClick(R.id.continue_registration_2)
     void continueClicked(){
+        setResult(RESULT_OK);
         finish();
     }
 
     @OnClick(R.id.arrow_back_registration)
     void backArrowClicked(){
-        startActivity(new Intent(this, RegistrationActivity1.class));
+        setResult(RESULT_CANCELED);
         finish();
     }
 }

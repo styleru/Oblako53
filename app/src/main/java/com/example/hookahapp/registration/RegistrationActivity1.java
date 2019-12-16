@@ -1,10 +1,12 @@
-package com.example.hookahapp;
+package com.example.hookahapp.registration;
 
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.hookahapp.R;
 import com.mikepenz.materialize.util.KeyboardUtil;
 
 import butterknife.ButterKnife;
@@ -23,13 +25,21 @@ public class RegistrationActivity1 extends AppCompatActivity {
 
     @OnClick(R.id.continue_registration_1)
     void continueClicked(){
-        startActivity(new Intent(getApplicationContext(), RegistrationActivity2.class));
-        finish();
+        startActivityForResult(new Intent(getApplicationContext(), RegistrationActivity2.class), 1);
     }
 
     @OnClick(R.id.close_cross_registration)
     void crossClicked(){
-        startActivity(new Intent(getApplicationContext(), OnboardingActivity4.class));
+        setResult(RESULT_CANCELED);
         finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK){
+            setResult(RESULT_OK);
+            finish();
+        }
     }
 }

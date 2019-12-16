@@ -1,11 +1,12 @@
-package com.example.hookahapp;
+package com.example.hookahapp.registration;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.hookahapp.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,7 +25,7 @@ public class AuthorisationActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_entering);
+        setContentView(R.layout.activity_authorisation);
         ButterKnife.bind(this);
         FormatWatcher formatWatcher = new MaskFormatWatcher(
                 MaskImpl.createTerminated(PredefinedSlots.RUS_PHONE_NUMBER)
@@ -34,12 +35,13 @@ public class AuthorisationActivity extends AppCompatActivity {
 
     @OnClick(R.id.arrow_back_authorisation)
     void  backPressed(){
-        startActivity(new Intent(getApplicationContext(), OnboardingActivity4.class));
+        setResult(RESULT_CANCELED);
         finish();
     }
 
     @OnClick(R.id.authorisation_continue)
     void continuePressed(){
+        setResult(RESULT_OK);
         finish();
     }
 

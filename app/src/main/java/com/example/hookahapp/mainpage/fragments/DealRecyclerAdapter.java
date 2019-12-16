@@ -1,4 +1,4 @@
-package com.example.hookahapp;
+package com.example.hookahapp.mainpage.fragments;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.hookahapp.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ import javax.inject.Inject;
 
 import data.DealDTO;
 
-class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapter.ViewHolder> {
+public class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapter.ViewHolder> {
 
     private List<DealDTO> data = new ArrayList<>();
 

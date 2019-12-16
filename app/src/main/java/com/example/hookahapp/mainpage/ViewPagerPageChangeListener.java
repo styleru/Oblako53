@@ -1,9 +1,11 @@
-package com.example.hookahapp;
+package com.example.hookahapp.mainpage;
 
 import android.content.Context;
 import android.widget.TextView;
 
 import androidx.viewpager.widget.ViewPager;
+
+import com.example.hookahapp.R;
 
 import java.util.List;
 
@@ -18,14 +20,13 @@ public class ViewPagerPageChangeListener implements ViewPager.OnPageChangeListen
     }
 
     @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        clearMenuHeadersBackground();
-        headers.get(position).setBackground(appContext.getResources()
-                .getDrawable(R.drawable.menu_rectangle_pressed));
-    }
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {}
 
     @Override
     public void onPageSelected(int position) {
+        clearMenuHeadersBackground();
+        headers.get(position).setBackground(appContext.getResources()
+                .getDrawable(R.drawable.menu_rectangle_pressed));
 
     }
 

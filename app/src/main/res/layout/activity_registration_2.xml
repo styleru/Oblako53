@@ -22,8 +22,8 @@
 
     <View
         android:id="@+id/arrow_back_registration"
-        android:layout_width="8dp"
-        android:layout_height="16dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginStart="21dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/arrow_back"
@@ -39,7 +39,7 @@
         android:layout_marginTop="36dp"
         android:singleLine="true"
         android:hint="@string/min_6_symbols_string"
-        android:textColorHint="@color/textColour"
+        android:textColorHint="@color/hintTextColour"
         android:textColor="@color/textColour"
         android:textSize="18sp"
         android:inputType="textPassword"

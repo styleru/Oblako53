@@ -1,6 +1,5 @@
-package com.example.hookahapp;
+package com.example.hookahapp.mainpage;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -10,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.bumptech.glide.Glide;
+import com.example.hookahapp.R;
 
 import java.util.List;
 
@@ -23,11 +23,11 @@ import toothpick.Scope;
 import toothpick.Toothpick;
 
 
-public class MainActivity extends MvpAppCompatActivity implements MainActivityVew{
+public class MainPageActivity extends MvpAppCompatActivity implements MainPageActivityVew {
 
     @Inject
     @InjectPresenter
-    MainActivityPresenter presenter;
+    MainPageActivityPresenter presenter;
 
     MenuPageAdapter menuPageAdapter;
 
@@ -41,20 +41,18 @@ public class MainActivity extends MvpAppCompatActivity implements MainActivityVe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
-        startActivity(new Intent(this, OnboardingActivity1.class));
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        Scope appScore = Toothpick.openScope("App");
-        Toothpick.inject(this, appScore);
-        menuPageAdapter = new MenuPageAdapter(getSupportFragmentManager(), 0, getApplicationContext());
+        Scope appScope = Toothpick.openScope("App");
+        Toothpick.inject(this, appScope);
+        menuPageAdapter = new MenuPageAdapter(getSupportFragmentManager(), getApplicationContext());
         viewPager.setAdapter(menuPageAdapter);
         viewPager.addOnPageChangeListener(new ViewPagerPageChangeListener(
                 headers, getApplicationContext()));
         loadPhoto(String.valueOf(R.drawable.avatar));
         headers.get(0).setBackground(getResources().getDrawable(R.drawable.menu_rectangle_pressed));
-        viewPager.setCurrentItem(0, false);
+        viewPager.setCurrentItem(0);
 
     }
 

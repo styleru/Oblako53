@@ -22,17 +22,15 @@
 
     <View
         android:id="@+id/arrow_back_authorisation"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_marginStart="21dp"
         android:layout_marginBottom="20dp"
         android:layout_marginEnd="380dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/arrow_back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/authorise"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
         android:id="@+id/telephone_edit_enter_activity"
@@ -43,13 +41,13 @@
         android:layout_marginTop="36dp"
         android:singleLine="true"
         android:hint="@string/telephone_string"
-        android:textColorHint="@color/textColour"
+        android:textColorHint="@color/hintTextColour"
         android:textColor="@color/textColour"
         android:textSize="18sp"
         android:inputType="phone"
         app:layout_constraintTop_toBottomOf="@id/authorise"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <EditText
         android:id="@+id/password_edit_enter_activity"
@@ -60,7 +58,7 @@
         android:layout_marginTop="32dp"
         android:singleLine="true"
         android:hint="@string/password_string"
-        android:textColorHint="@color/textColour"
+        android:textColorHint="@color/hintTextColour"
         android:textColor="@color/textColour"
         android:textSize="18sp"
         android:inputType="textPassword"
@@ -92,6 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:padding="5dp"
         android:text="@string/forgot_password_string"
         android:textColor="@color/red_text"
         android:textSize="14sp"

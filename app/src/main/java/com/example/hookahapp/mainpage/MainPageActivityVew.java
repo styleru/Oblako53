@@ -1,11 +1,11 @@
-package com.example.hookahapp;
+package com.example.hookahapp.mainpage;
 
 
 import android.widget.TextView;
 
 import com.arellomobile.mvp.MvpView;
 
-public interface MainActivityVew extends MvpView {
+public interface MainPageActivityVew extends MvpView {
 
     void menuButtonClicked(TextView textView);
     void dealButtonClicked(TextView textView);

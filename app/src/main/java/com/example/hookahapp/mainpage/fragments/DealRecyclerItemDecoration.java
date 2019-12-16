@@ -1,4 +1,4 @@
-package com.example.hookahapp;
+package com.example.hookahapp.mainpage.fragments;
 
 import android.graphics.Rect;
 import android.view.View;
