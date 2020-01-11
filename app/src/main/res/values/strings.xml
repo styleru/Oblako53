@@ -24,4 +24,15 @@
     <string name="telephone_string">Телефон</string>
     <string name="password_string">Пароль</string>
     <string name="forgot_password_string">Забыли пароль?</string>
+    <string name="free_parking_at_territory">Бесплатная парковка на территории\n заведения</string>
+    <string name="free_parking">Бесплатная парковка</string>
+    <string name="order_parking_string">Заказать парковку</string>
+    <string name="support_string"><u>Служба поддержки</u></string>
+    <string name="name_surname_string">Имя и Фамилия</string>
+    <string name="name_and_surname_hint">Иван Иванов</string>
+    <string name="cur_number_string">Номер машины</string>
+    <string name="cur_number_hint_string">В666АД777</string>
+    <string name="phone_hint_string">89152555341</string>
+    <string name="created_by_string">Разработано компанией OAK Moscow</string>
+    <string name="parking_order_complete_string">Спасибо! В ближайшее время вам\n сообщат об успешной парковке авто</string>
 </resources>

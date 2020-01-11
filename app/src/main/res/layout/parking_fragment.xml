@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/parking_free_parking_text"
+        android:layout_width="match_parent"
+        android:layout_height="23dp"
+        android:layout_marginStart="29dp"
+        android:textColor="@color/textColour"
+        android:text="@string/free_parking"
+        android:textSize="21sp"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="29dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/deal_item_rectangle"
+        android:id="@+id/parking_item"
+        app:layout_constraintTop_toBottomOf="@id/parking_free_parking_text"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/parking_item_image"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            tools:src="@tools:sample/avatars"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="47.67dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/dark_background_item"
+            android:alpha="0.7"
+            />
+        <TextView
+            android:id="@+id/deal_item_text"
+            android:layout_height="wrap_content"
+            android:paddingStart="14dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="7dp"
+            android:textColor="@color/textColour"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:text="@string/free_parking_at_territory"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/parking_fragment_order_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:layout_marginStart="29dp"
+        android:text="@string/order_parking_string"
+        android:paddingBottom="15dp"
+        android:paddingTop="18dp"
+        android:textColor="@color/textColour"
+        android:layout_marginEnd="29dp"
+        android:textSize="21sp"
+        android:gravity="center"
+        android:background="@drawable/red_button_rectangle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/parking_item"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.hookahapp.mainpage;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -9,6 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.bumptech.glide.Glide;
+import com.example.hookahapp.App;
 import com.example.hookahapp.R;
 
 import java.util.List;
@@ -39,17 +41,20 @@ public class MainPageActivity extends MvpAppCompatActivity implements MainPageAc
     @BindView(R.id.avatar_pic)
     ImageView avatarPic;
 
+    @Inject
+    Context appContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-        Scope appScope = Toothpick.openScope("App");
+        Scope appScope = Toothpick.openScope(App.class);
         Toothpick.inject(this, appScope);
-        menuPageAdapter = new MenuPageAdapter(getSupportFragmentManager(), getApplicationContext());
+        menuPageAdapter = new MenuPageAdapter(getSupportFragmentManager());
         viewPager.setAdapter(menuPageAdapter);
         viewPager.addOnPageChangeListener(new ViewPagerPageChangeListener(
-                headers, getApplicationContext()));
+                headers, appContext));
         loadPhoto(String.valueOf(R.drawable.avatar));
         headers.get(0).setBackground(getResources().getDrawable(R.drawable.menu_rectangle_pressed));
         viewPager.setCurrentItem(0);

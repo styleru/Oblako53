@@ -9,4 +9,5 @@
     <color name="darkTextColor">#1E272E</color>
     <color name="splashScreenColor">#000000</color>
     <color name="red_text">#EE1E23</color>
+    <color name="dark_background_item">#010101</color>
 </resources>

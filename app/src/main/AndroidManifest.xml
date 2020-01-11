@@ -30,6 +30,7 @@
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".registration.AuthorisationActivity"
             android:windowSoftInputMode="adjustPan"/>
+        <activity android:name=".parking.ParkingActivity"/>
     </application>
 
 </manifest>

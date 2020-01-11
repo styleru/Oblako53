@@ -41,6 +41,7 @@ public class AuthorisationActivity extends AppCompatActivity {
 
     @OnClick(R.id.authorisation_continue)
     void continuePressed(){
+        // TODO проверка авторизации
         setResult(RESULT_OK);
         finish();
     }

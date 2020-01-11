@@ -1,7 +1,5 @@
 package com.example.hookahapp.mainpage;
 
-import android.content.Context;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -14,10 +12,10 @@ import com.example.hookahapp.mainpage.fragments.ParkingFragment;
 
 public class MenuPageAdapter extends FragmentPagerAdapter {
 
-    private Context appContext;
-    public MenuPageAdapter(@NonNull FragmentManager fm, Context appContext) {
+
+    public MenuPageAdapter(@NonNull FragmentManager fm) {
         super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        this.appContext = appContext;
+
     }
 
 
