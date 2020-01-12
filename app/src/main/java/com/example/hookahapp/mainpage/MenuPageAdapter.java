@@ -6,9 +6,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.hookahapp.mainpage.fragments.CardFragment;
-import com.example.hookahapp.mainpage.fragments.DealFragment;
 import com.example.hookahapp.mainpage.fragments.MenuFragment;
 import com.example.hookahapp.mainpage.fragments.ParkingFragment;
+import com.example.hookahapp.mainpage.fragments.deal.DealFragment;
 
 public class MenuPageAdapter extends FragmentPagerAdapter {
 

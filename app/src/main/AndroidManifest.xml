@@ -31,6 +31,7 @@
         <activity android:name=".registration.AuthorisationActivity"
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".parking.ParkingActivity"/>
+        <activity android:name=".deal.DealActivity"/>
     </application>
 
 </manifest>

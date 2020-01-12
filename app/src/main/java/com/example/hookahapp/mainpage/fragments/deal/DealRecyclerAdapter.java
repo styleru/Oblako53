@@ -1,4 +1,4 @@
-package com.example.hookahapp.mainpage.fragments;
+package com.example.hookahapp.mainpage.fragments.deal;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,14 +22,16 @@ import data.DealDTO;
 public class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapter.ViewHolder> {
 
     private List<DealDTO> data = new ArrayList<>();
-
+    private RecyclerItemClickListener clickListener;
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.deal_item, parent, false);
-        return new ViewHolder(v);
+        final ViewHolder viewHolder = new ViewHolder(v);
+        v.setOnClickListener(v1 -> clickListener.itemClicked(v1, viewHolder.getAdapterPosition()));
+        return viewHolder;
     }
 
     @Override
@@ -41,7 +43,9 @@ public class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapte
                 .into(holder.dealImage);
     }
     @Inject
-    public DealRecyclerAdapter(){}
+    public DealRecyclerAdapter(RecyclerItemClickListener clickListener){
+        this.clickListener = clickListener;
+    }
 
     @Override
     public int getItemCount() {
@@ -69,5 +73,9 @@ public class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapte
             dealImage = itemView.findViewById(R.id.deal_item_image);
 
         }
+    }
+
+    public DealDTO getDeal(int position){
+        return data.get(position);
     }
 }
