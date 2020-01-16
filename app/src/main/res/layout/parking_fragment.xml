@@ -8,7 +8,7 @@
     <TextView
         android:id="@+id/parking_free_parking_text"
         android:layout_width="match_parent"
-        android:layout_height="23dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="29dp"
         android:textColor="@color/textColour"
         android:text="@string/free_parking"

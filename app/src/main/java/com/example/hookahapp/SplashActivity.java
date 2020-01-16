@@ -8,9 +8,9 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.hookahapp.mainpage.MainPageActivity;
-import com.example.hookahapp.onboarding.OnboardingActivity1;
-import com.example.hookahapp.registration.RegOrAuthActivity;
+import com.example.hookahapp.presentation.mainpage.MainPageActivity;
+import com.example.hookahapp.presentation.onboarding.OnboardingActivity1;
+import com.example.hookahapp.presentation.registration.RegOrAuthActivity;
 
 import javax.inject.Inject;
 

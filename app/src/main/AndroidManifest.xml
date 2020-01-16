@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mainpage.MainPageActivity">
+        <activity android:name=".presentation.mainpage.MainPageActivity">
         </activity>
         <activity android:name=".SplashActivity" android:theme="@style/AppTheme.Launcher">
 
@@ -19,19 +19,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".onboarding.OnboardingActivity1">
+        <activity android:name=".presentation.onboarding.OnboardingActivity1">
         </activity>
-        <activity android:name=".onboarding.OnboardingActivity2"/>
-        <activity android:name=".onboarding.OnboardingActivity3"/>
-        <activity android:name=".registration.RegOrAuthActivity"/>
-        <activity android:name=".registration.RegistrationActivity1"
+        <activity android:name=".presentation.onboarding.OnboardingActivity2"/>
+        <activity android:name=".presentation.onboarding.OnboardingActivity3"/>
+        <activity android:name=".presentation.registration.RegOrAuthActivity"/>
+        <activity android:name=".presentation.registration.RegistrationActivity1"
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".registration.RegistrationActivity2"
+        <activity android:name=".presentation.registration.RegistrationActivity2"
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".registration.AuthorisationActivity"
+        <activity android:name=".presentation.registration.AuthorisationActivity"
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".parking.ParkingActivity"/>
-        <activity android:name=".deal.DealActivity"/>
+        <activity android:name=".presentation.parking.ParkingActivity"/>
+        <activity android:name=".presentation.deal.DealActivity"/>
     </application>
 
 </manifest>

@@ -22,7 +22,7 @@
 
     <View
         android:id="@+id/arrow_back_registration"
-        android:layout_width="30dp"
+        android:layout_width="15dp"
         android:layout_height="30dp"
         android:layout_marginStart="21dp"
         android:layout_marginTop="20dp"
@@ -45,7 +45,7 @@
         android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@id/enter_password"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
         android:id="@+id/continue_registration_2"
@@ -53,16 +53,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="81dp"
+        android:layout_marginTop="125dp"
         android:gravity="center"
         android:paddingBottom="15dp"
         android:paddingTop="18dp"
-        android:background="@color/textColour"
+        android:background="@drawable/onboarding_rectangle"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/continue_string"
         android:textColor="@color/darkTextColor"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reg_password_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

@@ -3,7 +3,7 @@ package com.example.hookahapp;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.hookahapp.mainpage.fragments.deal.DealRecyclerAdapter;
+import com.example.hookahapp.presentation.mainpage.fragments.deal.DealRecyclerAdapter;
 
 import toothpick.config.Module;
 
