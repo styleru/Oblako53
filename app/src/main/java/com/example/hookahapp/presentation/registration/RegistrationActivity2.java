@@ -30,8 +30,11 @@ public class RegistrationActivity2 extends AppCompatActivity {
 
     @OnClick(R.id.continue_registration_2)
     void continueClicked(){
-        setResult(RESULT_OK, (new Intent()).putExtra("password", passwordEdit.getText()));
-        finish();
+        if (passwordEdit.getText().length() >= 6){
+            setResult(RESULT_OK, (new Intent()).putExtra("password", passwordEdit.getText()));
+            finish();
+        }
+        else passwordEdit.setTextColor(getResources().getColor(R.color.red_text));
     }
 
     @OnClick(R.id.arrow_back_registration)

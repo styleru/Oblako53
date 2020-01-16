@@ -12,6 +12,8 @@ import com.example.hookahapp.App;
 import com.example.hookahapp.R;
 import com.mikepenz.materialize.util.KeyboardUtil;
 
+import java.util.regex.Pattern;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -30,6 +32,9 @@ public class RegistrationActivity1 extends AppCompatActivity {
     @BindView(R.id.reg_telephone_edit)
     EditText phoneNumberEdit;
 
+    @BindView(R.id.reg_mail_edit)
+    EditText mailEdit;
+
     @Override
     public void onCreate(Bundle savedInstanceStated) {
         setTheme(R.style.AppTheme);
@@ -46,7 +51,14 @@ public class RegistrationActivity1 extends AppCompatActivity {
 
     @OnClick(R.id.continue_registration_1)
     void continueClicked(){
-        startActivityForResult(new Intent(appContext, RegistrationActivity2.class), 1);
+        if(!Pattern.compile("\\w+@\\D+\\.\\D+")
+                .matcher(mailEdit.getText().toString()).find() ||
+                !(phoneNumberEdit.getText().length() == 18))
+        {
+            phoneNumberEdit.setTextColor(getResources().getColor(R.color.red_text));
+            mailEdit.setTextColor(getResources().getColor(R.color.red_text));
+        }
+        else startActivityForResult(new Intent(appContext, RegistrationActivity2.class),1);
     }
 
     @OnClick(R.id.close_cross_registration)
@@ -59,8 +71,8 @@ public class RegistrationActivity1 extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && data != null){
-
             data.putExtra("phone", phoneNumberEdit.getText());
+            data.putExtra("mail", mailEdit.getText());
             setResult(RESULT_OK, data);
             finish();
         }

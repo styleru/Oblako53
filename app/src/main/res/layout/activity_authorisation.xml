@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/telephone_edit_enter_activity"
+        android:id="@+id/mail_edit_enter_activity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -60,7 +60,7 @@
         android:textColor="@color/textColour"
         android:textSize="18sp"
         android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@id/telephone_edit_enter_activity"
+        app:layout_constraintTop_toBottomOf="@id/mail_edit_enter_activity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

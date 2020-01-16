@@ -51,7 +51,7 @@ public class DealActivity extends MvpAppCompatActivity  implements DealActivityV
         DealDTO deal = parcelable.getDeal();
         Glide.with(this)
                 .load(deal.getPicUrl())
-                .fitCenter()
+                .centerCrop()
                 .into(picture);
         name.setText(deal.getDealName());
         description.setText(deal.getDealDescription());

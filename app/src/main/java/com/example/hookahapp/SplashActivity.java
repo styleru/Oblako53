@@ -42,8 +42,8 @@ public class SplashActivity extends AppCompatActivity {
 
             }
             else{
-                startActivityForResult(new Intent(appContext,
-                        RegOrAuthActivity.class), 1);
+                startActivity(new Intent(appContext,
+                        RegOrAuthActivity.class));
             }
         }
     }

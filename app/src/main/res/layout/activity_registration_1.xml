@@ -22,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="@string/enter_your_telephone_string"
+        android:text="@string/enter_telephone_mail_string"
         android:textSize="32sp"
         android:textColor="@color/textColour"
         android:layout_marginEnd="127dp"
@@ -39,7 +39,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="36dp"
         android:singleLine="true"
-        android:hint="@string/input_string"
+        android:hint="@string/phone_number_string"
         android:textColorHint="@color/hintTextColour"
         android:textColor="@color/textColour"
         android:textSize="18sp"
@@ -48,6 +48,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <EditText
+        android:id="@+id/reg_mail_edit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="36dp"
+        android:singleLine="true"
+        android:hint="@string/mail_string"
+        android:textColorHint="@color/hintTextColour"
+        android:textColor="@color/textColour"
+        android:textSize="18sp"
+        android:inputType="textEmailAddress"
+        app:layout_constraintTop_toBottomOf="@id/reg_telephone_edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
     <TextView
         android:id="@+id/continue_registration_1"
         android:layout_width="0dp"
@@ -63,7 +79,7 @@
         android:text="@string/continue_string"
         android:textColor="@color/darkTextColor"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/reg_telephone_edit"
+        app:layout_constraintTop_toBottomOf="@id/reg_mail_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

@@ -48,7 +48,7 @@ public class RegOrAuthActivity extends MvpAppCompatActivity implements RegOrAuth
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
             // TODO отправка данных о новом пользователе
-            setResult(RESULT_OK, data);
+            setResult(RESULT_OK);
             finish();
         }
     }
