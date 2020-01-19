@@ -10,8 +10,8 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.bumptech.glide.Glide;
 import com.example.hookahapp.App;
 import com.example.hookahapp.R;
-import com.example.hookahapp.data.DealDTO;
-import com.example.hookahapp.data.DealDTOParcelable;
+import com.example.hookahapp.domain.entities.DealDTO;
+import com.example.hookahapp.domain.entities.DealDTOParcelable;
 
 import javax.inject.Inject;
 
@@ -50,11 +50,11 @@ public class DealActivity extends MvpAppCompatActivity  implements DealActivityV
         assert parcelable != null;
         DealDTO deal = parcelable.getDeal();
         Glide.with(this)
-                .load(deal.getPicUrl())
+                .load(deal.getPhoto())
                 .centerCrop()
                 .into(picture);
-        name.setText(deal.getDealName());
-        description.setText(deal.getDealDescription());
+        name.setText(deal.getName());
+        description.setText(deal.getDescription());
     }
 
 
