@@ -15,8 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hookahapp.App;
 import com.example.hookahapp.R;
-import com.example.hookahapp.data.DealDTO;
-import com.example.hookahapp.data.DealDTOParcelable;
+import com.example.hookahapp.domain.entities.DealDTO;
+import com.example.hookahapp.domain.entities.DealDTOParcelable;
 import com.example.hookahapp.presentation.deal.DealActivity;
 
 import javax.inject.Inject;
@@ -60,13 +60,13 @@ public class DealFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.addItemDecoration(new DealRecyclerItemDecoration(33));
         DealDTO temp = new DealDTO();
-        temp.setDealName("aaaaaaaaaaaaaa");
-        temp.setDealDescription("Какое-то описание");
-        temp.setPicUrl(R.drawable.avatar);
+        temp.setName("aaaaaaaaaaaaaa");
+        temp.setDescription("Какое-то описание");
+        temp.setPhoto("https://i.ytimg.com/vi/_tK84M_w4Bw/maxresdefault.jpg");
         DealDTO temp1 = new DealDTO();
-        temp1.setDealName("иииииииии");
-        temp.setDealDescription("Какое-то описание\nКакое-то описание\nКакое-то описание");
-        temp1.setPicUrl(R.drawable.avatar);
+        temp1.setName("иииииииии");
+        temp.setDescription("Какое-то описание\nКакое-то описание\nКакое-то описание");
+        temp1.setPhoto("https://i.ytimg.com/vi/_tK84M_w4Bw/maxresdefault.jpg");
         adapter.addNewDeal(temp);
         adapter.addNewDeal(temp1);
         adapter.notifyDataSetChanged();

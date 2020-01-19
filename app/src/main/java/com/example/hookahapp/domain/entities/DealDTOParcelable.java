@@ -1,4 +1,4 @@
-package com.example.hookahapp.data;
+package com.example.hookahapp.domain.entities;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -17,7 +17,7 @@ public class DealDTOParcelable implements Parcelable {
             String picUrl = in.readString();
             String dealName = in.readString();
             String dealDescription = in.readString();
-            DealDTO deal = new DealDTO(Integer.valueOf(picUrl), dealName, dealDescription);
+            DealDTO deal = new DealDTO(picUrl, dealName, dealDescription);
             return new DealDTOParcelable(deal);
         }
 
@@ -34,9 +34,9 @@ public class DealDTOParcelable implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(String.valueOf(deal.getPicUrl()));
-        dest.writeString(deal.getDealName());
-        dest.writeString(deal.getDealDescription());
+        dest.writeString(String.valueOf(deal.getPhoto()));
+        dest.writeString(deal.getName());
+        dest.writeString(deal.getDescription());
     }
 
     public DealDTO getDeal() {

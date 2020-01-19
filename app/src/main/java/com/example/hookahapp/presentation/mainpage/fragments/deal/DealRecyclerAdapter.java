@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.hookahapp.R;
-import com.example.hookahapp.data.DealDTO;
+import com.example.hookahapp.domain.entities.DealDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,9 +36,9 @@ public class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         DealDTO deal = data.get(position);
-        holder.dealName.setText(deal.getDealName());
+        holder.dealName.setText(deal.getName());
         Glide.with(holder.itemView.getContext())
-                .load(deal.getPicUrl())
+                .load(deal.getPhoto())
                 .into(holder.dealImage);
     }
     @Inject
