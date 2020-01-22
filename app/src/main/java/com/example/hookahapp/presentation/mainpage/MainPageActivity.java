@@ -64,30 +64,22 @@ public class MainPageActivity extends MvpAppCompatActivity implements MainPageAc
 
     @OnClick(R.id.menu)
     public void menuButtonClicked(TextView textView){
-        clearMenuHeadersBackground();
-        textView.setBackground(getResources().getDrawable(R.drawable.menu_rectangle_pressed));
-        viewPager.setCurrentItem(0, false);
+        viewPager.setCurrentItem(0, true);
     }
 
     @OnClick(R.id.deal)
     public void dealButtonClicked(TextView textView){
-        clearMenuHeadersBackground();
-        textView.setBackground(getResources().getDrawable(R.drawable.menu_rectangle_pressed));
-        viewPager.setCurrentItem(1, false);
+        viewPager.setCurrentItem(1, true);
     }
 
     @OnClick(R.id.card)
     public void cardButtonClicked(TextView textView){
-        clearMenuHeadersBackground();
-        textView.setBackground(getResources().getDrawable(R.drawable.menu_rectangle_pressed));
-        viewPager.setCurrentItem(2, false);
+        viewPager.setCurrentItem(2, true);
     }
 
     @OnClick(R.id.parking)
     public void parkingButtonClicked(TextView textView){
-        clearMenuHeadersBackground();
-        textView.setBackground(getResources().getDrawable(R.drawable.menu_rectangle_default));
-        viewPager.setCurrentItem(3, false);
+      viewPager.setCurrentItem(3, true);
     }
 
     @Override
@@ -97,12 +89,4 @@ public class MainPageActivity extends MvpAppCompatActivity implements MainPageAc
                 .circleCrop()
                 .into(avatarPic);
     }
-
-    private void clearMenuHeadersBackground(){
-        headers.get(0).setBackground(getResources().getDrawable(R.drawable.menu_rectangle_default));
-        headers.get(1).setBackground(getResources().getDrawable(R.drawable.menu_rectangle_default));
-        headers.get(2).setBackground(getResources().getDrawable(R.drawable.menu_rectangle_default));
-        headers.get(3).setBackground(getResources().getDrawable(R.drawable.menu_rectangle_default));
-    }
-
 }
