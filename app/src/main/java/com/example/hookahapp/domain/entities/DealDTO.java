@@ -2,6 +2,11 @@ package com.example.hookahapp.domain.entities;
 
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+import org.parceler.ParcelConstructor;
+
+
+@Parcel(Parcel.Serialization.BEAN)
 public class DealDTO {
 
     @SerializedName("photo")
@@ -20,6 +25,14 @@ public class DealDTO {
         this.description =  description;
         this.name = name;
         this.photo = photo;
+    }
+
+    @ParcelConstructor
+    public DealDTO(String photo, String name, String description, int id){
+        this.photo = photo;
+        this.name = name;
+        this.description = description;
+        this.id = id;
     }
 
     public DealDTO(){}

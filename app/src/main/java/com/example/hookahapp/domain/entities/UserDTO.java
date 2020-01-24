@@ -3,17 +3,21 @@ package com.example.hookahapp.domain.entities;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+import org.parceler.ParcelConstructor;
+
 import java.util.List;
 
+@Parcel(Parcel.Serialization.BEAN)
 public class UserDTO {
 
     @SerializedName("name")
     @Expose
-    private String name;
+    private String name = "";
     
     @SerializedName("surname")
     @Expose
-    private String surname;
+    private String surname = "";
 
     @SerializedName("phone")
     @Expose
@@ -33,11 +37,38 @@ public class UserDTO {
 
     @SerializedName("photo")
     @Expose
-    private String photo;
+    private String photo = "";
 
     @SerializedName("status")
     @Expose
-    private int status;
+    private int status = 0;
+
+    public UserDTO(String email, String password){
+        this.email = email;
+        this.password = password;
+    }
+
+    public UserDTO(String email, String phone, String password){
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+    }
+
+    @ParcelConstructor
+    public UserDTO(String name, String surname, String phone, String email,
+                   List<Integer> birth, String password, String photo,
+                   int status){
+        this.name = name;
+        this.surname = surname;
+        this.phone = phone;
+        this.email = email;
+        this.birth = birth;
+        this.password = password;
+        this.photo = photo;
+        this.status = status;
+    }
+
+    public UserDTO(){}
 
     public String getName() {
         return name;

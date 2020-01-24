@@ -6,6 +6,17 @@
     android:background="@color/background"
     android:id="@+id/authorisation_layout">
 
+    <ProgressBar
+        android:id="@+id/acivity_authorisation_progress_bar"
+        style="@android:style/Widget.ProgressBar.Inverse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
     <TextView
         android:id="@+id/authorise"
         android:layout_width="0dp"

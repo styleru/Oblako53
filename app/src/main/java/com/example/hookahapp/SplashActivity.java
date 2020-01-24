@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hookahapp.presentation.mainpage.MainPageActivity;
 import com.example.hookahapp.presentation.onboarding.OnboardingActivity1;
-import com.example.hookahapp.presentation.registration.RegOrAuthActivity;
+import com.example.hookahapp.presentation.signing.RegOrAuthActivity;
 
 import javax.inject.Inject;
 
@@ -45,17 +45,6 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(new Intent(appContext,
                         RegOrAuthActivity.class));
             }
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK){
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putBoolean("authed", true);
-            editor.apply();
-            startActivity(new Intent(appContext, MainPageActivity.class));
         }
     }
 }

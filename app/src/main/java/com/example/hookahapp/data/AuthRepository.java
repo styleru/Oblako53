@@ -30,4 +30,11 @@ public class AuthRepository implements IAuthRepository {
     public Single<UserDTO> getUserData() {
         return userAPI.getUserData(basicAuthString.getKey());
     }
+
+    @Override
+    public Single<UserDTO> checkAuth(String username, String password) {
+        return userAPI.getUserData(basicAuthString.createKeyFromString(username, password));
+    }
+
+
 }

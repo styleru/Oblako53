@@ -23,12 +23,12 @@
         </activity>
         <activity android:name=".presentation.onboarding.OnboardingActivity2"/>
         <activity android:name=".presentation.onboarding.OnboardingActivity3"/>
-        <activity android:name=".presentation.registration.RegOrAuthActivity"/>
-        <activity android:name=".presentation.registration.RegistrationActivity1"
+        <activity android:name=".presentation.signing.RegOrAuthActivity"/>
+        <activity android:name=".presentation.signing.registration.RegistrationActivity1"
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".presentation.registration.RegistrationActivity2"
+        <activity android:name=".presentation.signing.registration.RegistrationActivity2"
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".presentation.registration.AuthorisationActivity"
+        <activity android:name=".presentation.authorisation.AuthorisationActivity"
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".presentation.parking.ParkingActivity"/>
         <activity android:name=".presentation.deal.DealActivity"/>

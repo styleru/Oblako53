@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hookahapp.App;
 import com.example.hookahapp.R;
-import com.example.hookahapp.presentation.registration.RegOrAuthActivity;
+import com.example.hookahapp.presentation.signing.RegOrAuthActivity;
 
 import javax.inject.Inject;
 

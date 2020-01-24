@@ -38,4 +38,8 @@ public class Interactor{
         return dealRepository.getDealById(id);
     }
 
+    public Single<UserDTO> checkAuth(String username, String password){
+        return authRepository.checkAuth(username, password);
+    }
+
 }

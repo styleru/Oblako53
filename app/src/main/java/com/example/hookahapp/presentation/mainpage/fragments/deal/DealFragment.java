@@ -16,8 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.hookahapp.App;
 import com.example.hookahapp.R;
 import com.example.hookahapp.domain.entities.DealDTO;
-import com.example.hookahapp.domain.entities.DealDTOParcelable;
 import com.example.hookahapp.presentation.deal.DealActivity;
+
+import org.parceler.Parcels;
 
 import javax.inject.Inject;
 
@@ -52,7 +53,7 @@ public class DealFragment extends Fragment {
 
         adapter = new DealRecyclerAdapter((v,position)->{
             Intent intent = new Intent(appContext, DealActivity.class);
-            intent.putExtra("deal", new DealDTOParcelable(adapter.getDeal(position)));
+            intent.putExtra("deal", Parcels.wrap(adapter.getDeal(position)));
             startActivity(intent);
         });
 
