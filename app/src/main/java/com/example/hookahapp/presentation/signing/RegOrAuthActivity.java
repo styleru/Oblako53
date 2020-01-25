@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hookahapp.App;
 import com.example.hookahapp.R;
-import com.example.hookahapp.presentation.authorisation.AuthorisationActivity;
+import com.example.hookahapp.presentation.signing.authorisation.AuthorisationActivity;
 import com.example.hookahapp.presentation.signing.registration.RegistrationActivity1;
 
 import javax.inject.Inject;
@@ -40,14 +40,4 @@ public class RegOrAuthActivity extends AppCompatActivity {
         startActivity(new Intent(appContext, AuthorisationActivity.class));
         finish();
     }
-
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (resultCode == RESULT_OK) {
-//            // TODO отправка данных о новом пользователе
-//            setResult(RESULT_OK);
-//            finish();
-//        }
-//    }
 }

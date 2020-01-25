@@ -1,4 +1,6 @@
-package com.example.hookahapp.presentation.authorisation;
+package com.example.hookahapp.presentation.mainpage.fragments.deal;
+
+import android.util.Log;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
@@ -11,20 +13,21 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 @InjectViewState
-public class AuthorisationActivityPresenter extends MvpPresenter<AuthorisationActivityView> {
+public class DealFragmentPresenter extends MvpPresenter<DealFragmentView> {
 
     private Interactor interactor;
 
+
     @Inject
-    public AuthorisationActivityPresenter(Interactor interactor){
+    public DealFragmentPresenter(Interactor interactor){
         this.interactor = interactor;
     }
 
-    public void regUser(String mail, String password){
-        Disposable disposable = interactor.checkAuth(mail, password)
+    void getDeals(){
+        Disposable disposable = interactor.getAllDeals()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(userDTO -> getViewState().startMainActivity(),
-                        e -> getViewState().authorisationError());
+                .subscribe(deals -> getViewState().addItems(deals),
+                        e -> Log.d("dealfrag", e.toString()));
     }
 }

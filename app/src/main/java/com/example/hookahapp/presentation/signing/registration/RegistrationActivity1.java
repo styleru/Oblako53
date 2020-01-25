@@ -95,4 +95,10 @@ public class RegistrationActivity1 extends AppCompatActivity {
         if (phoneNumberEdit.getText().length() == 18)
             phoneNumberEdit.setTextColor(getResources().getColor(R.color.textColour));
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(appContext, RegOrAuthActivity.class));
+    }
 }

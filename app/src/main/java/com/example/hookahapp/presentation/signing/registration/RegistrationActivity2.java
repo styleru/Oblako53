@@ -39,22 +39,22 @@ public class RegistrationActivity2 extends MvpAppCompatActivity implements Regis
     @BindView(R.id.acivity_registration_progress_bar)
     ProgressBar progressBar;
 
-    @Inject
+
     @InjectPresenter
     RegistrationActivity2Presenter presenter;
 
     @ProvidePresenter
     RegistrationActivity2Presenter providePresenter(){
-        return presenter;
+        return Toothpick.openScope(App.class).getInstance(RegistrationActivity2Presenter.class);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceStated) {
         setTheme(R.style.AppTheme);
+        Toothpick.inject(this, Toothpick.openScope(App.class));
         super.onCreate(savedInstanceStated);
         setContentView(R.layout.activity_registration_2);
         ButterKnife.bind(this);
-        Toothpick.inject(this, Toothpick.openScope(App.class));
         KeyboardUtil keyboardUtil = new KeyboardUtil(this, findViewById(R.id.registration_layout_2));
         keyboardUtil.enable();
     }

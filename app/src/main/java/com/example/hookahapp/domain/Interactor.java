@@ -2,6 +2,7 @@ package com.example.hookahapp.domain;
 
 import com.example.hookahapp.domain.entities.DealDTO;
 import com.example.hookahapp.domain.entities.UserDTO;
+import com.example.hookahapp.domain.entities.UserDTOResponse;
 import com.example.hookahapp.domain.repository.IAuthRepository;
 import com.example.hookahapp.domain.repository.IDealRepository;
 
@@ -22,11 +23,11 @@ public class Interactor{
         this.dealRepository = dealRepository;
     }
 
-    public Single<UserDTO> registerUser(UserDTO userDTO){
+    public Single<UserDTOResponse> registerUser(UserDTO userDTO){
         return authRepository.register(userDTO);
     }
 
-    public Single<UserDTO> getUserInfo(){
+    public Single<UserDTOResponse> getUserInfo(){
         return authRepository.getUserData();
     }
 
@@ -38,7 +39,7 @@ public class Interactor{
         return dealRepository.getDealById(id);
     }
 
-    public Single<UserDTO> checkAuth(String username, String password){
+    public Single<UserDTOResponse> checkAuth(String username, String password){
         return authRepository.checkAuth(username, password);
     }
 

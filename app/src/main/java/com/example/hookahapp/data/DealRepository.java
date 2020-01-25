@@ -1,5 +1,7 @@
 package com.example.hookahapp.data;
 
+import android.content.SharedPreferences;
+
 import com.example.hookahapp.data.api.DealAPI;
 import com.example.hookahapp.domain.entities.DealDTO;
 import com.example.hookahapp.domain.repository.IDealRepository;
@@ -12,6 +14,9 @@ import io.reactivex.Single;
 import retrofit2.Retrofit;
 
 public class DealRepository implements IDealRepository {
+
+    @Inject
+    SharedPreferences sharedPreferences;
 
 
     @Inject

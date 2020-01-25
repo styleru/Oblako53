@@ -1,6 +1,7 @@
 package com.example.hookahapp.presentation.deal;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,7 +12,8 @@ import com.bumptech.glide.Glide;
 import com.example.hookahapp.App;
 import com.example.hookahapp.R;
 import com.example.hookahapp.domain.entities.DealDTO;
-import com.example.hookahapp.domain.entities.DealDTOParcelable;
+
+import org.parceler.Parcels;
 
 import javax.inject.Inject;
 
@@ -46,11 +48,11 @@ public class DealActivity extends MvpAppCompatActivity  implements DealActivityV
         Scope appScope = Toothpick.openScope(App.class);
         Toothpick.inject(this, appScope);
         ButterKnife.bind(this);
-        DealDTOParcelable parcelable = getIntent().getParcelableExtra("deal");
-        assert parcelable != null;
-        DealDTO deal = parcelable.getDeal();
+        DealDTO deal = Parcels.unwrap(getIntent().getParcelableExtra("deal"));
+        Log.d("deal",deal.getPhoto());
         Glide.with(this)
                 .load(deal.getPhoto())
+                .placeholder(R.drawable.placeholder)
                 .centerCrop()
                 .into(picture);
         name.setText(deal.getName());

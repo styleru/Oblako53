@@ -1,4 +1,4 @@
-package com.example.hookahapp.presentation.authorisation;
+package com.example.hookahapp.presentation.signing.authorisation;
 
 import com.arellomobile.mvp.MvpView;
 

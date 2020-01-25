@@ -9,10 +9,12 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.arellomobile.mvp.MvpAppCompatFragment;
+import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.hookahapp.App;
 import com.example.hookahapp.R;
 import com.example.hookahapp.domain.entities.DealDTO;
@@ -20,19 +22,29 @@ import com.example.hookahapp.presentation.deal.DealActivity;
 
 import org.parceler.Parcels;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import toothpick.Toothpick;
 
-public class DealFragment extends Fragment {
+public class DealFragment extends MvpAppCompatFragment implements DealFragmentView {
 
     @BindView(R.id.deal_recycler)
     RecyclerView recyclerView;
 
     @Inject
     Context appContext;
+
+    @InjectPresenter
+    DealFragmentPresenter presenter;
+
+    @ProvidePresenter
+    DealFragmentPresenter providePresenter(){
+        return Toothpick.openScope(App.class).getInstance(DealFragmentPresenter.class);
+    }
 
     private DealRecyclerAdapter adapter;
 
@@ -60,17 +72,7 @@ public class DealFragment extends Fragment {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.addItemDecoration(new DealRecyclerItemDecoration(33));
-        DealDTO temp = new DealDTO();
-        temp.setName("aaaaaaaaaaaaaa");
-        temp.setDescription("Какое-то описание");
-        temp.setPhoto("https://i.ytimg.com/vi/_tK84M_w4Bw/maxresdefault.jpg");
-        DealDTO temp1 = new DealDTO();
-        temp1.setName("иииииииии");
-        temp.setDescription("Какое-то описание\nКакое-то описание\nКакое-то описание");
-        temp1.setPhoto("https://i.ytimg.com/vi/_tK84M_w4Bw/maxresdefault.jpg");
-        adapter.addNewDeal(temp);
-        adapter.addNewDeal(temp1);
-        adapter.notifyDataSetChanged();
+        presenter.getDeals();
 
     }
 
@@ -86,5 +88,10 @@ public class DealFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
 
+    }
+
+    public void addItems(List<DealDTO> deals){
+        adapter.setItems(deals);
+        adapter.notifyDataSetChanged();
     }
 }

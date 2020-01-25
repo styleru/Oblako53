@@ -6,11 +6,8 @@ import com.google.gson.annotations.SerializedName;
 import org.parceler.Parcel;
 import org.parceler.ParcelConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Parcel(Parcel.Serialization.BEAN)
-public class UserDTO {
+public class UserDTOResponse {
 
     @SerializedName("name")
     @Expose
@@ -30,7 +27,7 @@ public class UserDTO {
 
     @SerializedName("birth")
     @Expose
-    private List<Integer> birth = new ArrayList<>();
+    private String birth;
 
     @SerializedName("password")
     @Expose
@@ -44,24 +41,21 @@ public class UserDTO {
     @Expose
     private int status = 0;
 
-    public UserDTO(String email, String password){
+    public UserDTOResponse(String email, String password){
         this.email = email;
         this.password = password;
     }
 
-    public UserDTO(String email, String phone, String password){
+    public UserDTOResponse(String email, String phone, String password){
         this.email = email;
         this.phone = phone;
         this.password = password;
-        this.birth.add(1);
-        this.birth.add(2);
-        this.birth.add(3);
     }
 
     @ParcelConstructor
-    public UserDTO(String name, String surname, String phone, String email,
-                   List<Integer> birth, String password, String photo,
-                   int status){
+    public UserDTOResponse(String name, String surname, String phone, String email,
+                           String birth, String password, String photo,
+                           int status){
         this.name = name;
         this.surname = surname;
         this.phone = phone;
@@ -70,12 +64,9 @@ public class UserDTO {
         this.password = password;
         this.photo = photo;
         this.status = status;
-        this.birth.add(1);
-        this.birth.add(2);
-        this.birth.add(3);
     }
 
-    public UserDTO(){}
+    public UserDTOResponse(){}
 
     public String getName() {
         return name;
@@ -109,11 +100,11 @@ public class UserDTO {
         this.email = email;
     }
 
-    public List<Integer> getBirth() {
+    public String getBirth() {
         return birth;
     }
 
-    public void setBirth(List<Integer> birth) {
+    public void setBirth(String birth) {
         this.birth = birth;
     }
 

@@ -51,7 +51,7 @@
         
         <TextView
             android:id="@+id/deal_activity_deal_description"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:textColor="@color/textColour"

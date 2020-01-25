@@ -1,4 +1,4 @@
-package com.example.hookahapp.presentation.authorisation;
+package com.example.hookahapp.presentation.signing.authorisation;
 
 import android.content.Context;
 import android.content.Intent;
@@ -36,13 +36,13 @@ public class AuthorisationActivity extends MvpAppCompatActivity implements Autho
     @Inject
     SharedPreferences sharedPreferences;
 
-    @Inject
+
     @InjectPresenter
     AuthorisationActivityPresenter presenter;
 
     @ProvidePresenter
     AuthorisationActivityPresenter providePresenter(){
-        return presenter;
+        return Toothpick.openScope(App.class).getInstance(AuthorisationActivityPresenter.class);
     }
 
     @BindView(R.id.mail_edit_enter_activity)
@@ -86,6 +86,8 @@ public class AuthorisationActivity extends MvpAppCompatActivity implements Autho
         progressBar.setVisibility(View.INVISIBLE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("authed", true);
+        editor.putString("username", mailEdit.getText().toString());
+        editor.putString("password", passwordEdit.getText().toString());
         editor.apply();
         startActivity(new Intent(appContext, MainPageActivity.class));
         finish();
@@ -98,4 +100,9 @@ public class AuthorisationActivity extends MvpAppCompatActivity implements Autho
                 Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(appContext, RegOrAuthActivity.class));
+    }
 }

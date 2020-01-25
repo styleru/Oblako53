@@ -9,7 +9,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
         <activity android:name=".presentation.mainpage.MainPageActivity">
         </activity>
         <activity android:name=".SplashActivity" android:theme="@style/AppTheme.Launcher">
@@ -28,7 +29,7 @@
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".presentation.signing.registration.RegistrationActivity2"
             android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".presentation.authorisation.AuthorisationActivity"
+        <activity android:name=".presentation.signing.authorisation.AuthorisationActivity"
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".presentation.parking.ParkingActivity"/>
         <activity android:name=".presentation.deal.DealActivity"/>

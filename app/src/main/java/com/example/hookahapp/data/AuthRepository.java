@@ -2,6 +2,7 @@ package com.example.hookahapp.data;
 
 import com.example.hookahapp.data.api.UserAPI;
 import com.example.hookahapp.domain.entities.UserDTO;
+import com.example.hookahapp.domain.entities.UserDTOResponse;
 import com.example.hookahapp.domain.repository.IAuthRepository;
 
 import javax.inject.Inject;
@@ -22,17 +23,17 @@ public class AuthRepository implements IAuthRepository {
     }
 
     @Override
-    public Single<UserDTO> register(UserDTO userDTO) {
+    public Single<UserDTOResponse> register(UserDTO userDTO) {
         return userAPI.registerUser(userDTO);
     }
 
     @Override
-    public Single<UserDTO> getUserData() {
+    public Single<UserDTOResponse> getUserData() {
         return userAPI.getUserData(basicAuthString.getKey());
     }
 
     @Override
-    public Single<UserDTO> checkAuth(String username, String password) {
+    public Single<UserDTOResponse> checkAuth(String username, String password) {
         return userAPI.getUserData(basicAuthString.createKeyFromString(username, password));
     }
 
