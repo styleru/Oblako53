@@ -4,6 +4,7 @@ import com.example.hookahapp.domain.entities.DealDTO;
 import com.example.hookahapp.domain.entities.UserDTO;
 import com.example.hookahapp.domain.entities.UserDTOResponse;
 import com.example.hookahapp.domain.repository.IAuthRepository;
+import com.example.hookahapp.domain.repository.ICardRepository;
 import com.example.hookahapp.domain.repository.IDealRepository;
 import com.example.hookahapp.domain.repository.ISharedPreferencesRepository;
 
@@ -19,13 +20,15 @@ public class Interactor{
     private IAuthRepository authRepository;
     private IDealRepository dealRepository;
     private ISharedPreferencesRepository sharedPreferencesRepository;
+    private ICardRepository cardRepository;
 
     @Inject
     public Interactor(IAuthRepository authRepository, IDealRepository dealRepository,
-                      ISharedPreferencesRepository sharedPreferencesRepository){
+                      ISharedPreferencesRepository sharedPreferencesRepository, ICardRepository cardRepository){
         this.authRepository = authRepository;
         this.dealRepository = dealRepository;
         this.sharedPreferencesRepository = sharedPreferencesRepository;
+        this.cardRepository = cardRepository;
     }
 
     public Single<UserDTOResponse> registerUser(UserDTO userDTO){
@@ -58,6 +61,10 @@ public class Interactor{
 
     public boolean checkedAuthedOrNot(){
         return sharedPreferencesRepository.checkAuth();
+    }
+
+    public int getCardDisount(){
+        return cardRepository.getCurrentDiscount();
     }
 
 }
