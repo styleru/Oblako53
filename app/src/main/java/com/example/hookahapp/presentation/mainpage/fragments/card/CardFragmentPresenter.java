@@ -15,4 +15,8 @@ public class CardFragmentPresenter extends MvpPresenter<CardFragmentView> {
     CardFragmentPresenter(Interactor interactor){
         this.interactor = interactor;
     }
+
+    void getCardDiscount(){
+        getViewState().setCardDiscount(interactor.getCardDisount());
+    }
 }

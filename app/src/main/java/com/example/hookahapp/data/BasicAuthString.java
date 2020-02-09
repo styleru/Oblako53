@@ -2,20 +2,18 @@ package com.example.hookahapp.data;
 
 import android.util.Base64;
 
-import com.example.hookahapp.domain.repository.IBasicAuthStringRepository;
-
 import java.io.UnsupportedEncodingException;
 
 import javax.inject.Inject;
 
 
-public class BasicAuthStringRepository implements IBasicAuthStringRepository {
+public class BasicAuthString{
 
 
     private String key;
 
     @Inject
-    public BasicAuthStringRepository(){
+    public BasicAuthString(){
         key = "";
     }
 

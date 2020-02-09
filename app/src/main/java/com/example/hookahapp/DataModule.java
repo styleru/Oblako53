@@ -1,11 +1,12 @@
 package com.example.hookahapp;
 
 import com.example.hookahapp.data.AuthRepository;
-import com.example.hookahapp.data.BasicAuthStringRepository;
+import com.example.hookahapp.data.BasicAuthString;
+import com.example.hookahapp.data.CardRepository;
 import com.example.hookahapp.data.DealRepository;
 import com.example.hookahapp.data.SharedPreferencesRepository;
 import com.example.hookahapp.domain.repository.IAuthRepository;
-import com.example.hookahapp.domain.repository.IBasicAuthStringRepository;
+import com.example.hookahapp.domain.repository.ICardRepository;
 import com.example.hookahapp.domain.repository.IDealRepository;
 import com.example.hookahapp.domain.repository.ISharedPreferencesRepository;
 
@@ -24,11 +25,11 @@ public class DataModule extends Module {
                     .addConverterFactory(GsonConverterFactory.create())
                     .build());
 
-        bind(BasicAuthStringRepository.class).singletonInScope();
+        bind(BasicAuthString.class).singletonInScope();
 
         bind(ISharedPreferencesRepository.class).to(SharedPreferencesRepository.class);
         bind(IAuthRepository.class).to(AuthRepository.class);
         bind(IDealRepository.class).to(DealRepository.class);
-        bind(IBasicAuthStringRepository.class).to(BasicAuthStringRepository.class);
+        bind(ICardRepository.class).to(CardRepository.class);
     }
 }

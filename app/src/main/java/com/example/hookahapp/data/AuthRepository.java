@@ -15,29 +15,39 @@ public class AuthRepository implements IAuthRepository {
 
     private final UserAPI userAPI;
 
-    @Inject
-    BasicAuthStringRepository basicAuthStringRepository;
+    private final BasicAuthString basicAuthString;
+    private final SharedPreferencesRepository preferencesRepository;
 
     @Inject
-    public AuthRepository(Retrofit retrofit) {
+    public AuthRepository(Retrofit retrofit, BasicAuthString basicAuthString,
+                          SharedPreferencesRepository preferencesRepository) {
         this.userAPI = retrofit.create(UserAPI.class);
+        this.basicAuthString = basicAuthString;
+        this.preferencesRepository = preferencesRepository;
     }
 
     @Override
     public Single<UserDTOResponse> register(UserDTO userDTO) {
-        return userAPI.registerUser(userDTO);
+        return userAPI.registerUser(userDTO).doAfterSuccess(
+                user -> preferencesRepository.saveUserInfo(user.getEmail(),
+                        user.getPassword())
+        );
     }
 
     @Override
-    public Single<UserDTOResponse> getUserData(String key) {
-        return userAPI.getUserData(key);
+    public Single<UserDTOResponse> getUserData() {
+        return userAPI.getUserData(basicAuthString.getKey(
+                preferencesRepository.getUsername(),
+                preferencesRepository.getPassword()
+        ));
     }
 
     @Override
     public Completable checkAuth(String username, String password) {
-        return userAPI.getUserData(basicAuthStringRepository.createKeyFromString(username, password))
+        return userAPI.getUserData(basicAuthString.createKeyFromString(username, password))
                 .ignoreElement()
-                .andThen(Completable.fromAction(()->{}));
+                .andThen(Completable.fromAction(()->
+                        preferencesRepository.saveUserInfo(username, password)));
     }
 
 
