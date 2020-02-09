@@ -12,7 +12,8 @@
         android:layout_height="30dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/close_cross"
+        android:padding="22dp"
+        android:background="@drawable/close_cross_white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -64,6 +65,7 @@
         app:layout_constraintTop_toBottomOf="@id/reg_telephone_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/continue_registration_1"
         android:layout_width="0dp"
@@ -72,8 +74,6 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="128dp"
         android:gravity="center"
-        android:paddingBottom="15dp"
-        android:paddingTop="18dp"
         android:background="@drawable/onboarding_rectangle"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="@string/continue_string"

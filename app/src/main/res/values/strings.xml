@@ -37,4 +37,7 @@
     <string name="parking_order_complete_string">Спасибо! В ближайшее время вам\n сообщат об успешной парковке авто</string>
     <string name="deal_description_string">Описание акции</string>
     <string name="deal_name_string">Название акции</string>
+    <string name="forgot_password">Забыли пароль?</string>
+    <string name="hello">Здравствуйте!</string>
+    <string name="ur_cart">Ваша карта гостя</string>
 </resources>

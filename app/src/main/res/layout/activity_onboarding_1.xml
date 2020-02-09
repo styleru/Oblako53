@@ -13,8 +13,6 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="81dp"
-        android:paddingBottom="15dp"
-        android:paddingTop="18dp"
         android:background="@drawable/onboarding_rectangle"
         android:gravity="center"
         android:fontFamily="sans-serif-condensed-medium"

@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
+import com.example.hookahapp.BuildConfig;
 import com.example.hookahapp.domain.Interactor;
 
 import javax.inject.Inject;
@@ -28,6 +29,9 @@ public class DealFragmentPresenter extends MvpPresenter<DealFragmentView> {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(deals -> getViewState().addItems(deals),
-                        e -> Log.d("dealfrag", e.toString()));
+                        e -> {
+                    if (BuildConfig.DEBUG)
+                        Log.d("DealRequest", e.toString());
+                        });
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -63,11 +64,15 @@ public class RegistrationActivity1 extends AppCompatActivity {
     @OnClick(R.id.continue_registration_1)
     void continueClicked(){
         if(!Pattern.compile("\\w+@\\D+\\.\\D+")
-                .matcher(mailEdit.getText().toString()).find() ||
-                !(phoneNumberEdit.getText().length() == 18))
+                .matcher(mailEdit.getText().toString()).find())
         {
-            phoneNumberEdit.setTextColor(getResources().getColor(R.color.red_text));
             mailEdit.setTextColor(getResources().getColor(R.color.red_text));
+            Toast.makeText(appContext, "Почта введена некорректно", Toast.LENGTH_SHORT).show();
+        }
+
+        else if (!(phoneNumberEdit.getText().length() == 18)){
+            phoneNumberEdit.setTextColor(getResources().getColor(R.color.red_text));
+            Toast.makeText(appContext, "Телефон введен некорректно", Toast.LENGTH_SHORT).show();
         }
         else {
             Intent intent = new Intent(appContext, RegistrationActivity2.class);

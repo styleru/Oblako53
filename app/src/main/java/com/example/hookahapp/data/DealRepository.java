@@ -20,7 +20,7 @@ public class DealRepository implements IDealRepository {
 
 
     @Inject
-    BasicAuthString basicAuthString;
+    BasicAuthStringRepository basicAuthStringRepository;
 
     private DealAPI dealAPI;
 
@@ -30,12 +30,12 @@ public class DealRepository implements IDealRepository {
     }
 
     @Override
-    public Single<List<DealDTO>> getAllDeals() {
-        return dealAPI.getAllDeals(basicAuthString.getKey());
+    public Single<List<DealDTO>> getAllDeals(String key) {
+        return dealAPI.getAllDeals(key);
     }
 
     @Override
-    public Single<DealDTO> getDealById(int id) {
-        return dealAPI.getDeal(basicAuthString.getKey(), id);
+    public Single<DealDTO> getDealById(int id, String key) {
+        return dealAPI.getDeal(key, id);
     }
 }

@@ -36,9 +36,13 @@ public class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         DealDTO deal = data.get(position);
+
         holder.dealName.setText(deal.getName());
         Glide.with(holder.itemView.getContext())
                 .load(deal.getPhoto())
+//                .load(R.drawable.logo_picture)
+                .placeholder(R.drawable.placeholder)
+                .centerCrop()
                 .into(holder.dealImage);
     }
     @Inject
@@ -52,6 +56,7 @@ public class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapte
     }
 
     public void setItems(List<DealDTO> newData){
+        data.clear();
         data.addAll(newData);
         notifyDataSetChanged();
     }

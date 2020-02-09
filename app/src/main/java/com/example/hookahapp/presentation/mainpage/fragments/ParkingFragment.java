@@ -55,7 +55,7 @@ public class ParkingFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
         Glide.with(view)
-                .load(R.drawable.parking_background)
+                .load(R.drawable.parking_picture)
                 .fitCenter()
                 .into(image);
     }

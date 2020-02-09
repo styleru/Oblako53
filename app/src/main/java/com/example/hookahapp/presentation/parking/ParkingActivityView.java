@@ -5,4 +5,6 @@ import com.arellomobile.mvp.MvpView;
 public interface ParkingActivityView extends MvpView {
     void orderButtonPressed();
     void closeCrossClicked();
+    void showToast(String message);
+    void successParking();
 }

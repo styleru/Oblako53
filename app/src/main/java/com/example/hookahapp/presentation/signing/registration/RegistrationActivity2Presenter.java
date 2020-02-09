@@ -1,7 +1,10 @@
 package com.example.hookahapp.presentation.signing.registration;
 
+import android.util.Log;
+
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
+import com.example.hookahapp.BuildConfig;
 import com.example.hookahapp.domain.Interactor;
 import com.example.hookahapp.domain.entities.UserDTO;
 
@@ -27,7 +30,13 @@ public class RegistrationActivity2Presenter extends MvpPresenter<RegistrationAct
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
-                        userDTO -> getViewState().startMainActivity(),
-                        e -> getViewState().authorisationError());
+                        userDTO -> {
+                            interactor.saveUserInfo(userDTO.getEmail(), userDTO.getPassword());
+                            getViewState().startMainActivity();
+                        },
+                        e -> {
+                            if (BuildConfig.DEBUG) Log.d("Registration User", e.toString());
+                            getViewState().authorisationError();
+                        });
     }
 }

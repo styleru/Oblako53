@@ -7,6 +7,7 @@ import com.example.hookahapp.domain.repository.IAuthRepository;
 
 import javax.inject.Inject;
 
+import io.reactivex.Completable;
 import io.reactivex.Single;
 import retrofit2.Retrofit;
 
@@ -15,7 +16,7 @@ public class AuthRepository implements IAuthRepository {
     private final UserAPI userAPI;
 
     @Inject
-    BasicAuthString basicAuthString;
+    BasicAuthStringRepository basicAuthStringRepository;
 
     @Inject
     public AuthRepository(Retrofit retrofit) {
@@ -28,13 +29,15 @@ public class AuthRepository implements IAuthRepository {
     }
 
     @Override
-    public Single<UserDTOResponse> getUserData() {
-        return userAPI.getUserData(basicAuthString.getKey());
+    public Single<UserDTOResponse> getUserData(String key) {
+        return userAPI.getUserData(key);
     }
 
     @Override
-    public Single<UserDTOResponse> checkAuth(String username, String password) {
-        return userAPI.getUserData(basicAuthString.createKeyFromString(username, password));
+    public Completable checkAuth(String username, String password) {
+        return userAPI.getUserData(basicAuthStringRepository.createKeyFromString(username, password))
+                .ignoreElement()
+                .andThen(Completable.fromAction(()->{}));
     }
 
 

@@ -4,15 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/onboarding_4_background">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rectangle_onboarding_4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+    android:background="@color/background">
 
 
     <TextView
@@ -25,8 +17,6 @@
         android:background="@drawable/onboarding_rectangle"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
-        android:paddingTop="18dp"
-        android:paddingBottom="15dp"
         android:text="@string/register_string"
         android:textColor="@color/darkTextColor"
         android:textSize="16sp"
@@ -37,18 +27,19 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="257dp"
+        android:layout_marginBottom="200dp"
         android:background="@drawable/logo_picture"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/register" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <TextView
         android:id="@+id/already_have_account"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/already_have_account"
-        android:textColor="@color/darkTextColor"
+        android:textColor="@color/textColour"
         android:textSize="14sp"
         android:gravity=""
         android:layout_marginStart="105dp"

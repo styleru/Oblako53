@@ -33,4 +33,11 @@ public class OnboardingActivity2 extends AppCompatActivity {
         startActivity(new Intent(appContext, OnboardingActivity3.class));
         finish();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(appContext, OnboardingActivity1.class));
+        finish();
+    }
 }

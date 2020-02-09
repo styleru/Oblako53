@@ -1,7 +1,6 @@
 package com.example.hookahapp.presentation.deal;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -49,7 +48,7 @@ public class DealActivity extends MvpAppCompatActivity  implements DealActivityV
         Toothpick.inject(this, appScope);
         ButterKnife.bind(this);
         DealDTO deal = Parcels.unwrap(getIntent().getParcelableExtra("deal"));
-        Log.d("deal",deal.getPhoto());
+//        Log.d("deal",deal.getPhoto());
         Glide.with(this)
                 .load(deal.getPhoto())
                 .placeholder(R.drawable.placeholder)

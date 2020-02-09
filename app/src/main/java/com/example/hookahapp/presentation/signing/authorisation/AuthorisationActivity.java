@@ -74,6 +74,7 @@ public class AuthorisationActivity extends MvpAppCompatActivity implements Autho
         if(!Pattern.compile("\\w+@\\D+\\.\\D+")
                 .matcher(mailEdit.getText().toString()).find() || passwordEdit.getText().length() < 6){
             mailEdit.setTextColor(getResources().getColor(R.color.red_text));
+            Toast.makeText(appContext, "Почта введена некорректно", Toast.LENGTH_SHORT).show();
         }
         else{
             progressBar.setVisibility(View.VISIBLE);
@@ -84,11 +85,6 @@ public class AuthorisationActivity extends MvpAppCompatActivity implements Autho
     @Override
     public void startMainActivity() {
         progressBar.setVisibility(View.INVISIBLE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("authed", true);
-        editor.putString("username", mailEdit.getText().toString());
-        editor.putString("password", passwordEdit.getText().toString());
-        editor.apply();
         startActivity(new Intent(appContext, MainPageActivity.class));
         finish();
     }

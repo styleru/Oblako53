@@ -5,7 +5,6 @@ import com.arellomobile.mvp.MvpView;
 public interface RegistrationActivity2View extends MvpView {
 
     void continueClicked();
-    void backArrowClicked();
     void startMainActivity();
     void authorisationError();
 }

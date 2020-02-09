@@ -13,8 +13,6 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.example.hookahapp.App;
 import com.example.hookahapp.R;
 
-import java.util.regex.Pattern;
-
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -66,29 +64,28 @@ public class ParkingActivity extends MvpAppCompatActivity implements ParkingActi
     @OnClick(R.id.parking_order_button)
     public void orderButtonPressed(){
         if (nameEdit.getText().toString().isEmpty() || curNumberEdit.getText().toString().isEmpty()
-                || phoneNumberEdit.getText().toString().isEmpty()){
+                || phoneNumberEdit.getText().toString().isEmpty()
+                || !(phoneNumberEdit.getText().length() == 18)){
             Toast.makeText(appContext, "Введите все данные", Toast.LENGTH_SHORT).show();
         }
 
-        else if (!Pattern.compile("[а-я]\\d{3}[а-я]{2}\\d{2,3}")
-                .matcher(curNumberEdit.getText().toString()).find()){
-            Toast.makeText(appContext, "Номер машины введён некорректно",
-                    Toast.LENGTH_SHORT).show();
-        }
-
-        else if (!Pattern.compile("[а-яА-Я]+\\s[а-яА-Я]+")
-                .matcher(nameEdit.getText().toString()).find()){
-            Toast.makeText(appContext, "Укажите имя и фамилию целиком",
-                    Toast.LENGTH_SHORT).show();
-        }
-
-        else {//TODO Отправка данных (куда?)
-            successParking.setVisibility(View.VISIBLE);
-        }
+        else presenter.checkStrings(curNumberEdit.getText().toString(), nameEdit.getText().toString());
     }
+
+
 
     @OnClick(R.id.parking_activity_close)
     public void closeCrossClicked(){
         finish();
+    }
+
+    @Override
+    public void showToast(String message) {
+        Toast.makeText(appContext, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void successParking() {
+        successParking.setVisibility(View.VISIBLE);
     }
 }

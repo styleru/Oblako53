@@ -16,8 +16,6 @@
         android:background="@drawable/onboarding_rectangle"
         android:fontFamily="sans-serif-condensed-medium"
         android:gravity="center"
-        android:paddingTop="18dp"
-        android:paddingBottom="15dp"
         android:text="@string/next_string"
         android:textColor="@color/darkTextColor"
         android:textSize="16sp"

@@ -5,9 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.hookahapp.presentation.mainpage.fragments.CardFragment;
 import com.example.hookahapp.presentation.mainpage.fragments.MenuFragment;
-import com.example.hookahapp.presentation.mainpage.fragments.ParkingFragment;
+import com.example.hookahapp.presentation.mainpage.fragments.card.CardFragment;
 import com.example.hookahapp.presentation.mainpage.fragments.deal.DealFragment;
 
 public class MenuPageAdapter extends FragmentPagerAdapter {
@@ -33,7 +32,7 @@ public class MenuPageAdapter extends FragmentPagerAdapter {
                 return CardFragment.newInstance();
             }
             case 3: {
-                return ParkingFragment.newInstance();
+                return MenuFragment.newInstance();
             }
             default: return MenuFragment.newInstance();
         }

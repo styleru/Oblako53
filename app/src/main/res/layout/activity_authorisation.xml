@@ -31,14 +31,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <View
+    <Button
         android:id="@+id/arrow_back_authorisation"
-        android:layout_width="15dp"
+        android:layout_width="30dp"
+        android:paddingTop="22dp"
+        android:paddingEnd="22dp"
+        android:paddingStart="22dp"
+        android:paddingBottom="22dp"
         android:layout_height="30dp"
-        android:layout_marginStart="21dp"
+        android:layout_marginEnd="21dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/arrow_back"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/close_cross_white"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -94,5 +98,18 @@
         app:layout_constraintTop_toBottomOf="@id/password_edit_enter_activity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/authorisation_forgot_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/red_text"
+        android:textSize="14sp"
+        android:text="@string/forgot_password"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/authorisation_continue"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

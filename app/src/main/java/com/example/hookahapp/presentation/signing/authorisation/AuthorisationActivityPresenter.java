@@ -1,7 +1,10 @@
 package com.example.hookahapp.presentation.signing.authorisation;
 
+import android.util.Log;
+
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
+import com.example.hookahapp.BuildConfig;
 import com.example.hookahapp.domain.Interactor;
 
 import javax.inject.Inject;
@@ -24,7 +27,13 @@ public class AuthorisationActivityPresenter extends MvpPresenter<AuthorisationAc
         Disposable disposable = interactor.checkAuth(mail, password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(userDTO -> getViewState().startMainActivity(),
-                        e -> getViewState().authorisationError());
+                .subscribe(()-> {
+                    interactor.saveUserInfo(mail, password);
+                    getViewState().startMainActivity();
+                        },
+                        e -> {
+                    if (BuildConfig.DEBUG) Log.d("Checking Auth", e.toString());
+                    getViewState().authorisationError();
+                        });
     }
 }

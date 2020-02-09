@@ -67,11 +67,15 @@ public class RegistrationActivity2 extends MvpAppCompatActivity implements Regis
                     getIntent().getStringExtra("phone"),
                     passwordEdit.getText().toString());
         }
-        else passwordEdit.setTextColor(getResources().getColor(R.color.red_text));
+        else {
+            passwordEdit.setTextColor(getResources().getColor(R.color.red_text));
+            Toast.makeText(appContext, "Пароль слишком короткий", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    @OnClick(R.id.arrow_back_registration)
-    public void backArrowClicked(){
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
         Intent intent = new Intent(appContext, RegistrationActivity1.class);
         intent.putExtra("phone", getIntent().getStringExtra("phone"));
         intent.putExtra("mail", getIntent().getStringExtra("mail"));
@@ -82,11 +86,6 @@ public class RegistrationActivity2 extends MvpAppCompatActivity implements Regis
     @Override
     public void startMainActivity() {
         progressBar.setVisibility(View.INVISIBLE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean("authed", true);
-        editor.putString("username", getIntent().getStringExtra("mail"));
-        editor.putString("password", passwordEdit.getText().toString());
-        editor.apply();
         startActivity(new Intent(appContext, MainPageActivity.class));
         finish();
     }

@@ -34,4 +34,11 @@ public class OnboardingActivity3 extends AppCompatActivity {
         startActivity(new Intent(appContext, RegOrAuthActivity.class));
         finish();
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(appContext, OnboardingActivity2.class));
+        finish();
+    }
 }

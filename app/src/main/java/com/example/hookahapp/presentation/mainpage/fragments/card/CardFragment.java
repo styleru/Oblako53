@@ -1,4 +1,4 @@
-package com.example.hookahapp.presentation.mainpage.fragments;
+package com.example.hookahapp.presentation.mainpage.fragments.card;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -29,7 +29,7 @@ public class CardFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
 
-        return inflater.inflate(R.layout.menu_fragment, container, false);
+        return inflater.inflate(R.layout.card_fragment, container, false);
     }
 
     @Override

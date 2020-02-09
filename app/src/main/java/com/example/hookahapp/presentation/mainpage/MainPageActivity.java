@@ -13,6 +13,8 @@ import com.bumptech.glide.Glide;
 import com.example.hookahapp.App;
 import com.example.hookahapp.R;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -41,6 +43,9 @@ public class MainPageActivity extends MvpAppCompatActivity implements MainPageAc
     @BindView(R.id.avatar_pic)
     ImageView avatarPic;
 
+    @BindView(R.id.date)
+    TextView date;
+
     @Inject
     Context appContext;
 
@@ -58,7 +63,8 @@ public class MainPageActivity extends MvpAppCompatActivity implements MainPageAc
         loadPhoto(String.valueOf(R.drawable.avatar));
         headers.get(0).setBackground(getResources().getDrawable(R.drawable.menu_rectangle_pressed));
         viewPager.setCurrentItem(0);
-
+        SimpleDateFormat sdf = new SimpleDateFormat("EEEE, d MMMM");
+        date.setText(sdf.format(new Date()));
     }
 
 
