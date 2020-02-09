@@ -40,4 +40,13 @@
     <string name="forgot_password">Забыли пароль?</string>
     <string name="hello">Здравствуйте!</string>
     <string name="ur_cart">Ваша карта гостя</string>
+    
+    <string name="contacts">Контакты</string>
+    <string name="pizza">Пицца</string>
+    <string name="desserts">Десерты</string>
+    <string name="japanese_kitchen">Японская кухня</string>
+    <string name="beverages">Напитки</string>
+    <string name="snacks">Закуски</string>
+    <string name="bar">Бар</string>
+    <string name="coctails">Коктейли</string>
 </resources>

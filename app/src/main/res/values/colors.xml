@@ -11,4 +11,5 @@
     <color name="splashScreenColor">#000000</color>
     <color name="red_text">#EE1E24</color>
     <color name="dark_background_item">#010101</color>
+    <color name="menu_item">#1A1B1E</color>
 </resources>
