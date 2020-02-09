@@ -4,7 +4,6 @@ import com.example.hookahapp.domain.entities.DealDTO;
 import com.example.hookahapp.domain.entities.UserDTO;
 import com.example.hookahapp.domain.entities.UserDTOResponse;
 import com.example.hookahapp.domain.repository.IAuthRepository;
-import com.example.hookahapp.domain.repository.IBasicAuthStringRepository;
 import com.example.hookahapp.domain.repository.IDealRepository;
 import com.example.hookahapp.domain.repository.ISharedPreferencesRepository;
 
@@ -20,16 +19,13 @@ public class Interactor{
     private IAuthRepository authRepository;
     private IDealRepository dealRepository;
     private ISharedPreferencesRepository sharedPreferencesRepository;
-    private IBasicAuthStringRepository basicAuthStringRepository;
 
     @Inject
     public Interactor(IAuthRepository authRepository, IDealRepository dealRepository,
-                      ISharedPreferencesRepository sharedPreferencesRepository,
-                      IBasicAuthStringRepository basicAuthStringRepository){
+                      ISharedPreferencesRepository sharedPreferencesRepository){
         this.authRepository = authRepository;
         this.dealRepository = dealRepository;
         this.sharedPreferencesRepository = sharedPreferencesRepository;
-        this.basicAuthStringRepository = basicAuthStringRepository;
     }
 
     public Single<UserDTOResponse> registerUser(UserDTO userDTO){
@@ -37,32 +33,19 @@ public class Interactor{
     }
 
     public Single<UserDTOResponse> getUserInfo(){
-        return authRepository.getUserData(basicAuthStringRepository.getKey(
-                sharedPreferencesRepository.getUsername(),
-                sharedPreferencesRepository.getPassword())
-        );
+        return authRepository.getUserData();
     }
 
     public Single<List<DealDTO>> getAllDeals(){
-        return dealRepository.getAllDeals(basicAuthStringRepository.getKey(
-                sharedPreferencesRepository.getUsername(),
-                sharedPreferencesRepository.getPassword()
-        ));
+        return dealRepository.getAllDeals();
     }
 
     public Single<DealDTO> getDealById(int id){
-        return dealRepository.getDealById(id,
-                basicAuthStringRepository.getKey(sharedPreferencesRepository.getUsername(),
-                        sharedPreferencesRepository.getPassword())
-        );
+        return dealRepository.getDealById(id);
     }
 
     public Completable checkAuth(String username, String password){
         return authRepository.checkAuth(username, password);
-    }
-
-    public void saveUserInfo(String username, String password){
-        sharedPreferencesRepository.saveUserInfo(username, password);
     }
 
     public boolean firstRun(){

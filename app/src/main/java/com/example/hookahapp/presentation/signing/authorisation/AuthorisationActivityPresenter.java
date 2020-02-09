@@ -27,10 +27,7 @@ public class AuthorisationActivityPresenter extends MvpPresenter<AuthorisationAc
         Disposable disposable = interactor.checkAuth(mail, password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(()-> {
-                    interactor.saveUserInfo(mail, password);
-                    getViewState().startMainActivity();
-                        },
+                .subscribe(()-> getViewState().startMainActivity(),
                         e -> {
                     if (BuildConfig.DEBUG) Log.d("Checking Auth", e.toString());
                     getViewState().authorisationError();

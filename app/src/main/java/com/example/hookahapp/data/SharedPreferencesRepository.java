@@ -16,11 +16,11 @@ public class SharedPreferencesRepository implements ISharedPreferencesRepository
     }
 
     public String getUsername(){
-        return sharedPreferences.getString("username", "");
+        return sharedPreferences.getString("username", null);
     }
 
     public String getPassword(){
-        return sharedPreferences.getString("password", "");
+        return sharedPreferences.getString("password", null);
     }
 
     public void saveUserInfo(String name, String password){

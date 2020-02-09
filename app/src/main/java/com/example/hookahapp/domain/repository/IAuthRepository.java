@@ -8,6 +8,6 @@ import io.reactivex.Single;
 
 public interface IAuthRepository {
     Single<UserDTOResponse> register(UserDTO userDTO);
-    Single<UserDTOResponse> getUserData(String key);
+    Single<UserDTOResponse> getUserData();
     Completable checkAuth(String username, String password);
 }
