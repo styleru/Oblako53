@@ -67,17 +67,21 @@ public class RegistrationActivity1 extends AppCompatActivity {
                 .matcher(mailEdit.getText().toString()).find())
         {
             mailEdit.setTextColor(getResources().getColor(R.color.red_text));
-            Toast.makeText(appContext, "Почта введена некорректно", Toast.LENGTH_SHORT).show();
+            Toast.makeText(appContext, getResources().getString(R.string.incorrect_mail),
+                    Toast.LENGTH_SHORT).show();
         }
 
         else if (!(phoneNumberEdit.getText().length() == 18)){
             phoneNumberEdit.setTextColor(getResources().getColor(R.color.red_text));
-            Toast.makeText(appContext, "Телефон введен некорректно", Toast.LENGTH_SHORT).show();
+            Toast.makeText(appContext, getResources().getString(R.string.incorrect_telephone),
+                    Toast.LENGTH_SHORT).show();
         }
         else {
             Intent intent = new Intent(appContext, RegistrationActivity2.class);
-            intent.putExtra("phone", phoneNumberEdit.getText().toString());
-            intent.putExtra("mail", mailEdit.getText().toString());
+            intent.putExtra(getResources().getString(R.string.phone),
+                    phoneNumberEdit.getText().toString());
+            intent.putExtra(getResources().getString(R.string.mail),
+                    mailEdit.getText().toString());
             startActivity(intent);
         }
     }

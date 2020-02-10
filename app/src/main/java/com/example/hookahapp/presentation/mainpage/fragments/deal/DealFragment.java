@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,6 +35,9 @@ public class DealFragment extends MvpAppCompatFragment implements DealFragmentVi
 
     @BindView(R.id.deal_recycler)
     RecyclerView recyclerView;
+
+    @BindView(R.id.deal_fragment_progressbar)
+    ProgressBar progressBar;
 
     @Inject
     Context appContext;
@@ -72,6 +76,7 @@ public class DealFragment extends MvpAppCompatFragment implements DealFragmentVi
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         recyclerView.addItemDecoration(new DealRecyclerItemDecoration(33));
+        progressBar.setVisibility(View.VISIBLE);
         presenter.getDeals();
 
     }
@@ -84,13 +89,8 @@ public class DealFragment extends MvpAppCompatFragment implements DealFragmentVi
         return view;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-
-    }
-
     public void addItems(List<DealDTO> deals){
+        progressBar.setVisibility(View.VISIBLE);
         adapter.setItems(deals);
         adapter.notifyDataSetChanged();
     }

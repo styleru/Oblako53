@@ -68,4 +68,7 @@ dependencies {
     // RxJava 2
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'io.reactivex.rxjava2:rxjava:2.2.8'
+
+    //Logging Interceptor
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.1'
 }

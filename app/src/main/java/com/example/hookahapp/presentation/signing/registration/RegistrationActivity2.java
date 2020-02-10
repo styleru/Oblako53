@@ -63,13 +63,14 @@ public class RegistrationActivity2 extends MvpAppCompatActivity implements Regis
     public void continueClicked(){
         if (passwordEdit.getText().length() >= 6){
             progressBar.setVisibility(View.VISIBLE);
-            presenter.registerUser(getIntent().getStringExtra("mail"),
-                    getIntent().getStringExtra("phone"),
+            presenter.registerUser(getIntent().getStringExtra(getResources().getString(R.string.mail)),
+                    getIntent().getStringExtra(getResources().getString(R.string.phone)),
                     passwordEdit.getText().toString());
         }
         else {
             passwordEdit.setTextColor(getResources().getColor(R.color.red_text));
-            Toast.makeText(appContext, "Пароль слишком короткий", Toast.LENGTH_SHORT).show();
+            Toast.makeText(appContext, getResources().getString(R.string.short_password),
+                    Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -77,8 +78,10 @@ public class RegistrationActivity2 extends MvpAppCompatActivity implements Regis
     public void onBackPressed() {
         super.onBackPressed();
         Intent intent = new Intent(appContext, RegistrationActivity1.class);
-        intent.putExtra("phone", getIntent().getStringExtra("phone"));
-        intent.putExtra("mail", getIntent().getStringExtra("mail"));
+        intent.putExtra(getResources().getString(R.string.phone),
+                getIntent().getStringExtra(getResources().getString(R.string.phone)));
+        intent.putExtra(getResources().getString(R.string.mail),
+                getIntent().getStringExtra(getResources().getString(R.string.mail)));
         startActivity(intent);
         finish();
     }
@@ -93,7 +96,7 @@ public class RegistrationActivity2 extends MvpAppCompatActivity implements Regis
     @Override
     public void authorisationError() {
         progressBar.setVisibility(View.INVISIBLE);
-        Toast.makeText(appContext, "Ошибка регистрации\nПовторите попытку позднее",
+        Toast.makeText(appContext, getResources().getString(R.string.authorisation_error),
                 Toast.LENGTH_SHORT).show();
     }
 

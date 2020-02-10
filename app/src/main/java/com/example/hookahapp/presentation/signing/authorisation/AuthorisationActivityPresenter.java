@@ -7,6 +7,8 @@ import com.arellomobile.mvp.MvpPresenter;
 import com.example.hookahapp.BuildConfig;
 import com.example.hookahapp.domain.Interactor;
 
+import java.util.regex.Pattern;
+
 import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -24,13 +26,18 @@ public class AuthorisationActivityPresenter extends MvpPresenter<AuthorisationAc
     }
 
     public void regUser(String mail, String password){
-        Disposable disposable = interactor.checkAuth(mail, password)
+        if (!Pattern.compile("\\w+@\\D+\\.\\D+")
+                .matcher(mail).find()) getViewState().incorrectMailEntered();
+         else {
+             Disposable disposable = interactor.checkAuth(mail, password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(()-> getViewState().startMainActivity(),
                         e -> {
+//                    e.printStackTrace();
                     if (BuildConfig.DEBUG) Log.d("Checking Auth", e.toString());
                     getViewState().authorisationError();
                         });
+         }
     }
 }

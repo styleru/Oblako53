@@ -8,4 +8,5 @@ public interface AuthorisationActivityView extends MvpView {
     void continuePressed();
     void startMainActivity();
     void authorisationError();
+    void incorrectMailEntered();
 }

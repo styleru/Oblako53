@@ -90,10 +90,11 @@ public class CardFragment extends MvpAppCompatFragment implements CardFragmentVi
 
     @OnClick(R.id.card_root_screen)
     void rootClicked(){
-        cardInfo.startAnimation(AnimationUtils.loadAnimation(appContext,
-                R.anim.card_pop_down));
-        cardInfo.setVisibility(View.INVISIBLE);
-
+        if (cardInfo.getVisibility() == View.VISIBLE) {
+            cardInfo.startAnimation(AnimationUtils.loadAnimation(appContext,
+                    R.anim.card_pop_down));
+            cardInfo.setVisibility(View.INVISIBLE);
+        }
     }
 
     public void setCardDiscount(int discount){

@@ -51,7 +51,7 @@ public class DealActivity extends MvpAppCompatActivity  implements DealActivityV
 //        Log.d("deal",deal.getPhoto());
         Glide.with(this)
                 .load(deal.getPhoto())
-                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.placeholder)
                 .centerCrop()
                 .into(picture);
         name.setText(deal.getName());

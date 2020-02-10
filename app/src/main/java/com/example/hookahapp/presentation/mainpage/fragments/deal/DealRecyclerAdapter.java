@@ -41,7 +41,7 @@ public class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapte
         Glide.with(holder.itemView.getContext())
                 .load(deal.getPhoto())
 //                .load(R.drawable.logo_picture)
-                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.placeholder)
                 .centerCrop()
                 .into(holder.dealImage);
     }

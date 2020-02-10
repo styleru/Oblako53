@@ -10,6 +10,8 @@ import com.example.hookahapp.domain.repository.ICardRepository;
 import com.example.hookahapp.domain.repository.IDealRepository;
 import com.example.hookahapp.domain.repository.ISharedPreferencesRepository;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -18,12 +20,18 @@ import toothpick.config.Module;
 public class DataModule extends Module {
     public DataModule(){
 
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.level(BuildConfig.DEBUG ?
+                HttpLoggingInterceptor.Level.BODY : HttpLoggingInterceptor.Level.NONE);
+        httpClient.addInterceptor(loggingInterceptor);
         bind(Retrofit.class).toInstance(
                 new Retrofit.Builder()
-                    .baseUrl("http://80.211.245.129:5000")
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build());
+                        .baseUrl("http://80.211.245.129:5000")
+                        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .client(httpClient.build())
+                        .build());
 
         bind(BasicAuthString.class).singletonInScope();
 

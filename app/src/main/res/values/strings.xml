@@ -46,4 +46,18 @@
         Изначально ваша скидка составляет 3% (20000р-5%,50000р- 7%, 100000р-10%, 150000р-15%)</string>
     <string name="card_info3">3. Для получения скидки покажите свою карту в нашем приложение</string>
     <string name="card_info4">4. Как пополнить или узнать текущий баланс карты спрашивайте у сотрудников нашего заведения</string>
+    <string name="telephone">Телефон</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="authed">authed</string>
+    <string name="first_run">firstrun</string>
+    <string name="enter_mail">Укажите почту</string>
+    <string name="enter_password">Укажите пароль</string>
+    <string name="enter_all_fields">Заполните все поля</string>
+    <string name="incorrect_mail">Почта введена некорректно</string>
+    <string name="authorisation_error">Ошибка авторизации\n Повторите попытку позднее</string>
+    <string name="phone">phone</string>
+    <string name="mail">mail</string>
+    <string name="incorrect_telephone">Телефон введен некорректно</string>
+    <string name="short_password">Пароль слишком короткий</string>
 </resources>

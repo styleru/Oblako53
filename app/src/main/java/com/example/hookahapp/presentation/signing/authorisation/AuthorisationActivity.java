@@ -19,8 +19,6 @@ import com.example.hookahapp.R;
 import com.example.hookahapp.presentation.mainpage.MainPageActivity;
 import com.example.hookahapp.presentation.signing.RegOrAuthActivity;
 
-import java.util.regex.Pattern;
-
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -71,15 +69,32 @@ public class AuthorisationActivity extends MvpAppCompatActivity implements Autho
 
     @OnClick(R.id.authorisation_continue)
     public void continuePressed(){
-        if(!Pattern.compile("\\w+@\\D+\\.\\D+")
-                .matcher(mailEdit.getText().toString()).find() || passwordEdit.getText().length() < 6){
+        if(mailEdit.getText().length() == 0){
             mailEdit.setTextColor(getResources().getColor(R.color.red_text));
-            Toast.makeText(appContext, "Почта введена некорректно", Toast.LENGTH_SHORT).show();
+            Toast.makeText(appContext, getResources().getString(R.string.enter_mail),
+                    Toast.LENGTH_SHORT).show();
+        }
+        else if (passwordEdit.getText().length() == 0){
+            passwordEdit.setTextColor(getResources().getColor(R.color.red_text));
+            Toast.makeText(appContext, getResources().getString(R.string.enter_password),
+                    Toast.LENGTH_SHORT).show();
+        }
+
+        else if (passwordEdit.getText().length() == 0 && passwordEdit.getText().length() == 0){
+            mailEdit.setTextColor(getResources().getColor(R.color.red_text));
+            passwordEdit.setTextColor(getResources().getColor(R.color.red_text));
+            Toast.makeText(appContext, getResources().getString(R.string.enter_all_fields),
+                    Toast.LENGTH_SHORT).show();
         }
         else{
             progressBar.setVisibility(View.VISIBLE);
             presenter.regUser(mailEdit.getText().toString(), passwordEdit.getText().toString());
         }
+    }
+
+    public void incorrectMailEntered(){
+        mailEdit.setTextColor(getResources().getColor(R.color.red_text));
+        Toast.makeText(appContext, getString(R.string.incorrect_mail), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -92,7 +107,7 @@ public class AuthorisationActivity extends MvpAppCompatActivity implements Autho
     @Override
     public void authorisationError() {
         progressBar.setVisibility(View.INVISIBLE);
-        Toast.makeText(appContext, "Ошибка авторизации\nПовторите попытку позднее",
+        Toast.makeText(appContext, getResources().getString(R.string.authorisation_error),
                 Toast.LENGTH_SHORT).show();
     }
 
