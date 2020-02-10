@@ -3,7 +3,6 @@ package com.example.hookahapp.data;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.hookahapp.R;
 import com.example.hookahapp.domain.repository.ISharedPreferencesRepository;
 
 import javax.inject.Inject;
@@ -13,6 +12,11 @@ public class SharedPreferencesRepository implements ISharedPreferencesRepository
     private SharedPreferences sharedPreferences;
     private Context appContext;
 
+    private static final String authed = "authed";
+    private static final String username = "username";
+    private static final String password = "password";
+    private static final String firstrun = "firstrun";
+
     @Inject
     public SharedPreferencesRepository(SharedPreferences sharedPreferences, Context appContext){
         this.sharedPreferences = sharedPreferences;
@@ -20,36 +24,32 @@ public class SharedPreferencesRepository implements ISharedPreferencesRepository
     }
 
     public String getUsername(){
-        return sharedPreferences.getString(appContext.getResources()
-                .getString(R.string.username), null);
+        return sharedPreferences.getString(username, null);
     }
 
     public String getPassword(){
-        return sharedPreferences.getString(appContext.getResources()
-                .getString(R.string.password), null);
+        return sharedPreferences.getString(password, null);
     }
 
     public void saveUserInfo(String name, String password){
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean(appContext.getResources().getString(R.string.authed), true);
-        editor.putString(appContext.getResources().getString(R.string.username), name);
-        editor.putString(appContext.getResources().getString(R.string.password), password);
+        editor.putBoolean(authed, true);
+        editor.putString(username, name);
+        editor.putString(password, password);
         editor.apply();
     }
 
     public boolean checkFirstRun(){
-        return sharedPreferences.getBoolean(appContext.getResources()
-                .getString(R.string.first_run), true);
+        return sharedPreferences.getBoolean(firstrun, true);
     }
 
     public void setNotFirstRun(){
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean(appContext.getResources().getString(R.string.first_run), false);
+        editor.putBoolean(firstrun, false);
         editor.apply();
     }
 
     public boolean checkAuth(){
-        return sharedPreferences.getBoolean(appContext.getResources()
-                .getString(R.string.authed), false);
+        return sharedPreferences.getBoolean(authed, false);
     }
 }
