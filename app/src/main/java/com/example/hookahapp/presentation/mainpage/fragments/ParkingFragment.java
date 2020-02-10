@@ -6,13 +6,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.bumptech.glide.Glide;
 import com.example.hookahapp.App;
 import com.example.hookahapp.R;
 import com.example.hookahapp.presentation.parking.ParkingActivity;
@@ -33,7 +31,7 @@ public class ParkingFragment extends Fragment {
     public ParkingFragment() {}
 
     @BindView(R.id.parking_item_image)
-    ImageView image;
+    View image;
 
     @Inject
     Context appContext;
@@ -54,9 +52,6 @@ public class ParkingFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-        Glide.with(view)
-                .load(R.drawable.parking_picture)
-                .into(image);
     }
 
     @Override
