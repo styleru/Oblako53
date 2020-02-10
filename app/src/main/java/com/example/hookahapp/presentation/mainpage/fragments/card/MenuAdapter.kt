@@ -11,12 +11,11 @@ import com.example.hookahapp.R
 class MenuAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     val items = arrayListOf(R.string.contacts, R.string.hookah, R.string.pizza, R.string.desserts,
             R.string.japanese_kitchen, R.string.beverages, R.string.snacks, R.string.bar, R.string.coctails)
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
-        val view = if (viewType == 1)
-             LayoutInflater.from(parent.context).inflate(R.layout.menu_item, parent, false)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return if (viewType == 1)
+            MenuViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.menu_item, parent, false))
         else
-            LayoutInflater.from(parent.context).inflate(R.layout.menu_image_item, parent, false)
-        return MenuViewHolder(view)
+            MenuImageViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.menu_image_item, parent, false))
     }
 
     override fun getItemCount(): Int {
@@ -39,7 +38,7 @@ class MenuAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     }
 
     class MenuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val menuTextView : TextView = itemView.findViewById(R.id.menuTextView)
+        val menuTextView : TextView = itemView.findViewById(R.id.menuSingleTextView)
     }
 
     class MenuImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
