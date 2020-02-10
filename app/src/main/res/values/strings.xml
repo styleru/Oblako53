@@ -40,6 +40,15 @@
     <string name="forgot_password">Забыли пароль?</string>
     <string name="hello">Здравствуйте!</string>
     <string name="ur_cart">Ваша карта гостя</string>
+
+    <string name="contacts">Контакты</string>
+    <string name="pizza">Пицца</string>
+    <string name="desserts">Десерты</string>
+    <string name="japanese_kitchen">Японская кухня</string>
+    <string name="beverages">Напитки</string>
+    <string name="snacks">Закуски</string>
+    <string name="bar">Бар</string>
+    <string name="coctails">Коктейли</string>
     <string name="guest_card">Накопительная карта гостя</string>
     <string name="card_info1">1. Данная карта дает вам право получать скидку в нашем заведение</string>
     <string name="card_info2">2. Размер скидки зависит от того насколько часто вы у нас отдыхаете.
