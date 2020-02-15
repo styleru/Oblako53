@@ -27,11 +27,10 @@
         app:layout_constraintTop_toBottomOf="@id/parking_free_parking_text"
         app:layout_constraintStart_toStartOf="parent">
 
-        <View
+        <ImageView
             android:id="@+id/parking_item_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/parking_picture"
             tools:src="@tools:sample/avatars"/>
 
         <View
