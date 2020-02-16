@@ -7,15 +7,41 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hookahapp.R
+import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.BAR
+import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.BEVERAGE
+import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.COCKTAILS
+import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.CONTACTS
+import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.DESSERTS
+import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.HOOKAH
+import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.JAPANESE_KITCHEN
+import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.PIZZA
+import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.SNACKS
+import com.example.hookahapp.presentation.mainpage.fragments.MenuCallback
 
-class MenuAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
+class MenuAdapter(val callback: MenuCallback) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     val items = arrayListOf(R.string.contacts, R.string.hookah, R.string.pizza, R.string.desserts,
             R.string.japanese_kitchen, R.string.beverages, R.string.snacks, R.string.bar, R.string.coctails)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == 1)
+        val holder = if (viewType == 1)
             MenuViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.menu_item, parent, false))
         else
             MenuImageViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.menu_image_item, parent, false))
+        holder.itemView.setOnClickListener {
+            val key = when(holder.adapterPosition){
+                0 -> CONTACTS
+                1 -> HOOKAH
+                2 -> PIZZA
+                3 -> DESSERTS
+                4 -> JAPANESE_KITCHEN
+                5 -> BEVERAGE
+                6 -> SNACKS
+                7 -> BAR
+                8 -> COCKTAILS
+                else -> throw Exception("индекс аут оф баундc эксепшн епта")
+            }
+            callback.onMenuItemClicked(key)
+        }
+        return holder
     }
 
     override fun getItemCount(): Int {

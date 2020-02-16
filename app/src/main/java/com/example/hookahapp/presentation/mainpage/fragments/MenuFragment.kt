@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.hookahapp.R
+import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment
 import com.example.hookahapp.presentation.mainpage.fragments.card.MenuAdapter
 import kotlinx.android.synthetic.main.menu_fragment.*
 
@@ -17,11 +18,13 @@ class MenuFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        menuRecycler.adapter = MenuAdapter()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
+        menuRecycler.adapter = MenuAdapter(object : MenuCallback{
+            override fun onMenuItemClicked(key: String) {
+                activity?.supportFragmentManager?.
+                        beginTransaction()?.
+                        add(R.id.fragmentHost, SingleMenuItemFragment.newInstance(key))?.commit()
+            }
+        })
     }
 
     companion object {
@@ -30,4 +33,8 @@ class MenuFragment : Fragment() {
             return MenuFragment()
         }
     }
+}
+
+interface MenuCallback{
+    fun onMenuItemClicked(key: String)
 }
