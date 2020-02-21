@@ -69,4 +69,6 @@
     <string name="mail">mail</string>
     <string name="incorrect_telephone">Телефон введен некорректно</string>
     <string name="short_password">Пароль слишком короткий</string>
+
+    <string name="hookah_contacts">Адрес: Ломоносовский\n проспект 25к5\n Номер: 8 (966) 089–53–53\n inst: oblako53_university\n Сайт: www.oblako53mgu.com</string>
 </resources>

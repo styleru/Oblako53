@@ -4,13 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hookahapp.R
 import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.BAR
 import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.BEVERAGE
 import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.COCKTAILS
-import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.CONTACTS
 import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.DESSERTS
 import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.HOOKAH
 import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.JAPANESE_KITCHEN
@@ -27,19 +27,29 @@ class MenuAdapter(val callback: MenuCallback) : RecyclerView.Adapter<RecyclerVie
         else
             MenuImageViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.menu_image_item, parent, false))
         holder.itemView.setOnClickListener {
-            val key = when(holder.adapterPosition){
-                0 -> CONTACTS
-                1 -> HOOKAH
-                2 -> PIZZA
-                3 -> DESSERTS
-                4 -> JAPANESE_KITCHEN
-                5 -> BEVERAGE
-                6 -> SNACKS
-                7 -> BAR
-                8 -> COCKTAILS
+            when(holder.adapterPosition){
+                0 -> {holder as MenuImageViewHolder
+                    if (holder.contactsTextView.visibility == View.GONE) {
+                        holder.contactsTextView.visibility = View.VISIBLE
+                        holder.background.visibility = View.VISIBLE
+                        //holder.background.setBackgroundColor(ContextCompat.getColor(holder.background.context, R.color.menu_item))
+                    }
+                    else{
+                        holder.contactsTextView.visibility = View.GONE
+                        holder.background.visibility = View.GONE
+                        //holder.background.setBackgroundColor(ContextCompat.getColor(holder.background.context, android.R.color.transparent))
+                    }
+                }
+                1 -> callback.onMenuItemClicked(HOOKAH)
+                2 -> callback.onMenuItemClicked(PIZZA)
+                3 -> callback.onMenuItemClicked(DESSERTS)
+                4 -> callback.onMenuItemClicked(JAPANESE_KITCHEN)
+                5 -> callback.onMenuItemClicked(BEVERAGE)
+                6 -> callback.onMenuItemClicked(SNACKS)
+                7 -> callback.onMenuItemClicked(BAR)
+                8 -> callback.onMenuItemClicked(COCKTAILS)
                 else -> throw Exception("индекс аут оф баундc эксепшн епта")
             }
-            callback.onMenuItemClicked(key)
         }
         return holder
     }
@@ -56,6 +66,8 @@ class MenuAdapter(val callback: MenuCallback) : RecyclerView.Adapter<RecyclerVie
         if (holder is MenuImageViewHolder) {
             holder.menuImageView.setImageResource(R.drawable.cloud_epic)
             holder.menuTextView.text = holder.menuTextView.context.getText(items[position]) // вытаскиваем контекст через жопу
+            holder.contactsTextView.visibility = View.GONE
+            holder.background.visibility = View.GONE
         }
         else {
             holder as MenuViewHolder
@@ -70,5 +82,7 @@ class MenuAdapter(val callback: MenuCallback) : RecyclerView.Adapter<RecyclerVie
     class MenuImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val menuTextView : TextView = itemView.findViewById(R.id.menuTextView)
         val menuImageView : ImageView = itemView.findViewById(R.id.menuImageView)
+        val contactsTextView : TextView = itemView.findViewById(R.id.contactsTextView)
+        val background : LinearLayout = itemView.findViewById(R.id.itemBackground)
     }
 }
