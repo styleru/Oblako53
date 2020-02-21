@@ -20,9 +20,8 @@ class MenuFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         menuRecycler.adapter = MenuAdapter(object : MenuCallback{
             override fun onMenuItemClicked(key: String) {
-                activity?.supportFragmentManager?.
-                        beginTransaction()?.
-                        add(R.id.fragmentHost, SingleMenuItemFragment.newInstance(key))?.commit()
+                val fragment = SingleMenuItemFragment.newInstance(key)
+                fragment.show(fragmentManager!!, "Menu item")
             }
         })
     }

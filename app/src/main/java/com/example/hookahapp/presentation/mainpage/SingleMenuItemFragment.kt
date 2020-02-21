@@ -2,14 +2,16 @@ package com.example.hookahapp.presentation.mainpage
 
 import android.content.Context
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.fragment.app.Fragment
 import com.example.hookahapp.R
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.single_menu_item_fragment.*
 
-class SingleMenuItemFragment : Fragment(R.layout.single_menu_item_fragment) {
+class SingleMenuItemFragment : BottomSheetDialogFragment() {
     companion object{
         private const val SCREEN_KEY = "screen_key"
 
@@ -30,6 +32,10 @@ class SingleMenuItemFragment : Fragment(R.layout.single_menu_item_fragment) {
             fragment.arguments = bundle
             return fragment
         }
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return layoutInflater.inflate(R.layout.single_menu_item_fragment, container)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
