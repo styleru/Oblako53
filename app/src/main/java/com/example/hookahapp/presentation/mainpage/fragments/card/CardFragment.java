@@ -97,8 +97,7 @@ public class CardFragment extends MvpAppCompatFragment implements CardFragmentVi
         }
     }
 
-    public void setCardDiscount(int discount){
-        String tmp = discount + "%";
-        discountText.setText(tmp);
+    public void setCardDiscount(String discount){
+        discountText.setText(discount);
     }
 }

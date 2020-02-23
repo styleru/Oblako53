@@ -27,7 +27,7 @@ public class DataModule extends Module {
         httpClient.addInterceptor(loggingInterceptor);
         bind(Retrofit.class).toInstance(
                 new Retrofit.Builder()
-                        .baseUrl("http://80.211.245.129:5000")
+                        .baseUrl("http://80.211.245.129:8080")
                         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                         .addConverterFactory(GsonConverterFactory.create())
                         .client(httpClient.build())

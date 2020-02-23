@@ -63,7 +63,7 @@ public class Interactor{
         return sharedPreferencesRepository.checkAuth();
     }
 
-    public int getCardDisount(){
+    public Single<String> getCardDisount(){
         return cardRepository.getCurrentDiscount();
     }
 

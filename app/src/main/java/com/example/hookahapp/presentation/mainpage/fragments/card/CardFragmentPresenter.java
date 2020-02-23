@@ -6,6 +6,10 @@ import com.example.hookahapp.domain.Interactor;
 
 import javax.inject.Inject;
 
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
+
 @InjectViewState
 public class CardFragmentPresenter extends MvpPresenter<CardFragmentView> {
 
@@ -17,6 +21,10 @@ public class CardFragmentPresenter extends MvpPresenter<CardFragmentView> {
     }
 
     void getCardDiscount(){
-        getViewState().setCardDiscount(interactor.getCardDisount());
+        Disposable disposable = interactor.getCardDisount()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(discount -> getViewState().setCardDiscount(discount),
+                        e -> {});
     }
 }

@@ -4,5 +4,5 @@ import com.arellomobile.mvp.MvpView;
 
 public interface CardFragmentView extends MvpView {
 
-    void setCardDiscount(int discount);
+    void setCardDiscount(String discount);
 }
