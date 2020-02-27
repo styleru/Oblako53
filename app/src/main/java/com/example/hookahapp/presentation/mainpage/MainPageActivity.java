@@ -9,6 +9,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
+import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.bumptech.glide.Glide;
 import com.example.hookahapp.App;
 import com.example.hookahapp.R;
@@ -29,9 +30,14 @@ import toothpick.Toothpick;
 
 public class MainPageActivity extends MvpAppCompatActivity implements MainPageActivityVew {
 
-    @Inject
+
     @InjectPresenter
     MainPageActivityPresenter presenter;
+
+    @ProvidePresenter
+    MainPageActivityPresenter getPresenter(){
+        return  Toothpick.openScope(App.class).getInstance(MainPageActivityPresenter.class);
+    }
 
     MenuPageAdapter menuPageAdapter;
 
@@ -45,6 +51,9 @@ public class MainPageActivity extends MvpAppCompatActivity implements MainPageAc
 
     @BindView(R.id.date)
     TextView date;
+
+    @BindView(R.id.discount)
+    TextView discount;
 
     @Inject
     Context appContext;
@@ -65,6 +74,7 @@ public class MainPageActivity extends MvpAppCompatActivity implements MainPageAc
         viewPager.setCurrentItem(0);
         SimpleDateFormat sdf = new SimpleDateFormat("EEEE, d MMMM");
         date.setText(sdf.format(new Date()));
+        presenter.getDiscount();
     }
 
 
@@ -94,5 +104,10 @@ public class MainPageActivity extends MvpAppCompatActivity implements MainPageAc
                 .load(R.drawable.avatar)
                 .circleCrop()
                 .into(avatarPic);
+    }
+
+    @Override
+    public void setDiscount(String discount) {
+        this.discount.setText(this.discount.getText() + " " + discount);
     }
 }

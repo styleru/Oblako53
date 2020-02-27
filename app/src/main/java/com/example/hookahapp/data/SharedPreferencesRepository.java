@@ -12,10 +12,10 @@ public class SharedPreferencesRepository implements ISharedPreferencesRepository
     private SharedPreferences sharedPreferences;
     private Context appContext;
 
-    private static final String authed = "authed";
-    private static final String username = "username";
-    private static final String password = "password";
-    private static final String firstrun = "firstrun";
+    private final String authed = "authed";
+    private final String username = "username";
+    private final String password = "password";
+    private final String firstrun = "firstrun";
 
     @Inject
     public SharedPreferencesRepository(SharedPreferences sharedPreferences, Context appContext){
@@ -33,9 +33,9 @@ public class SharedPreferencesRepository implements ISharedPreferencesRepository
 
     public void saveUserInfo(String name, String password){
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putBoolean(authed, true);
-        editor.putString(username, name);
-        editor.putString(password, password);
+        editor.putBoolean(this.authed, true);
+        editor.putString(this.username, name);
+        editor.putString(this.password, password);
         editor.apply();
     }
 
