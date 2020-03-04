@@ -29,7 +29,18 @@ public class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapte
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.deal_item, parent, false);
         final ViewHolder viewHolder = new ViewHolder(v);
-        v.setOnClickListener(v1 -> clickListener.itemClicked(v1, viewHolder.getAdapterPosition()));
+        v.setOnClickListener(v1 -> {
+            if (viewHolder.dealBody.getVisibility() == View.INVISIBLE){
+                viewHolder.dealBody.setVisibility(View.VISIBLE);
+//                viewHolder.dealBodyBack.setVisibility(View.VISIBLE);
+            }
+            else{
+                int t = viewHolder.dealBody.getVisibility();
+                viewHolder.dealBody.setVisibility(View.INVISIBLE);
+//                viewHolder.dealBodyBack.setVisibility(View.INVISIBLE);
+            }
+        });
+//        v.setOnClickListener(v1 -> clickListener.itemClicked(v1, viewHolder.getAdapterPosition()));
         return viewHolder;
     }
 
@@ -38,6 +49,9 @@ public class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapte
         DealDTO deal = data.get(position);
 
         holder.dealName.setText(deal.getName());
+
+        holder.dealBody.setText(deal.getDescription());
+
         Glide.with(holder.itemView.getContext())
                 .load(deal.getPhoto())
 //                .load(R.drawable.logo_picture)
@@ -45,6 +59,19 @@ public class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapte
                 .centerCrop()
                 .into(holder.dealImage);
     }
+
+    @Override
+    public void onViewDetachedFromWindow(@NonNull ViewHolder holder) {
+        holder.dealBody.setVisibility(View.INVISIBLE);
+        super.onViewDetachedFromWindow(holder);
+    }
+
+    @Override
+    public void onViewRecycled(@NonNull ViewHolder holder) {
+        holder.dealBody.setVisibility(View.INVISIBLE);
+        super.onViewRecycled(holder);
+    }
+
     @Inject
     public DealRecyclerAdapter(RecyclerItemClickListener clickListener){
         this.clickListener = clickListener;
@@ -69,13 +96,18 @@ public class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapte
     class ViewHolder extends RecyclerView.ViewHolder{
         TextView dealName;
         ImageView dealImage;
+        TextView dealBody;
+//        View dealBodyBack;
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
             itemView.setClipToOutline(true);
             dealName = itemView.findViewById(R.id.deal_item_text);
             dealImage = itemView.findViewById(R.id.deal_item_image);
-
+            dealBody = itemView.findViewById(R.id.deal_item_body);
+            dealBody.setVisibility(View.INVISIBLE);
+//            dealBodyBack = itemView.findViewById(R.id.deal_item_body_back);
+//            dealBodyBack.setVisibility(View.INVISIBLE);
         }
     }
 

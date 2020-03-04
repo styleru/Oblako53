@@ -64,7 +64,7 @@ class MenuAdapter(val callback: MenuCallback) : RecyclerView.Adapter<RecyclerVie
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (holder is MenuImageViewHolder) {
-            holder.menuImageView.setImageResource(R.drawable.cloud_epic)
+            holder.menuImageView.setImageResource(R.drawable.cloud)
             holder.menuTextView.text = holder.menuTextView.context.getText(items[position]) // вытаскиваем контекст через жопу
             holder.contactsTextView.visibility = View.GONE
             holder.background.visibility = View.GONE
