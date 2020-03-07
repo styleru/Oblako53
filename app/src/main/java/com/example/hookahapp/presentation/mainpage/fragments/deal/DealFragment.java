@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,6 +40,9 @@ public class DealFragment extends MvpAppCompatFragment implements DealFragmentVi
 
     @BindView(R.id.deal_fragment_progressbar)
     ProgressBar progressBar;
+
+    @BindView(R.id.empty_text)
+    TextView emptyText;
 
     @Inject
     Context appContext;
@@ -89,9 +94,20 @@ public class DealFragment extends MvpAppCompatFragment implements DealFragmentVi
         return view;
     }
 
-    public void addItems(List<DealDTO> deals){
-        progressBar.setVisibility(View.VISIBLE);
+    public void replaceItems(List<DealDTO> deals){
         adapter.setItems(deals);
         adapter.notifyDataSetChanged();
+
+        emptyText.setVisibility(deals.isEmpty() ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
+    public void setProgress(boolean visible) {
+        progressBar.setVisibility(visible ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
+    public void showToast(int text) {
+        Toast.makeText(getContext(), text, Toast.LENGTH_SHORT).show();
     }
 }
