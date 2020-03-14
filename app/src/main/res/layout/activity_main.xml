@@ -3,22 +3,22 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/root_screen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="top"
-            android:background="@color/background"
             android:paddingBottom="35dp"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
-            tools:context=".presentation.mainpage.MainPageActivity">
+            app:layout_scrollFlags="scroll">
 
             <TextView
                 android:id="@+id/name"
