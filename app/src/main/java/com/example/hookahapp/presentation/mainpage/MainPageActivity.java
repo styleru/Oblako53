@@ -2,10 +2,8 @@ package com.example.hookahapp.presentation.mainpage;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
@@ -46,17 +44,11 @@ public class MainPageActivity extends MvpAppCompatActivity implements MainPageAc
     @BindView(R.id.viewPager)
     ViewPager viewPager;
 
-    @BindView(R.id.mainpage_scrollview)
-    ScrollView scrollView;
-
     @BindView(R.id.date)
     TextView date;
 
     @BindView(R.id.discount)
     TextView discount;
-
-    @BindView(R.id.coordinator_layout_main)
-    CoordinatorLayout coordinatorLayout;
 
     @Inject
     Context appContext;
