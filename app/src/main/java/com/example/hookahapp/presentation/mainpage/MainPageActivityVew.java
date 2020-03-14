@@ -11,7 +11,6 @@ public interface MainPageActivityVew extends MvpView {
     void dealButtonClicked(TextView textView);
     void cardButtonClicked(TextView textView);
     void parkingButtonClicked(TextView textView);
-    void loadPhoto(String pictureUrl);
     void setDiscount(String discount);
 
 }

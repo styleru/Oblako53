@@ -1,163 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    android:id="@+id/mainpage_scrollview"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/root_screen"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="top"
-    android:paddingBottom="35dp"
-    tools:context=".presentation.mainpage.MainPageActivity">
-
-
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="67dp"
-        android:gravity="top"
-        android:text="@string/hello"
-        android:textColor="@color/textColour"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/avatar_pic"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/avatar_pic"
-        android:layout_width="76dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginBottom="44dp"
-        tools:src="@tools:sample/avatars"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <TextView
-        android:id="@+id/discount"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="67dp"
-        android:gravity="top"
-        android:text="@string/discount"
-        android:textColor="@color/textColour"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/avatar_pic"
-        app:layout_constraintTop_toBottomOf="@id/name" />
-
-
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="67dp"
-        android:gravity="top"
-        android:textColor="@color/textColour"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/avatar_pic"
-        app:layout_constraintTop_toBottomOf="@id/discount" />
-
-
-    <TextView
-        android:id="@+id/menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="29dp"
-        android:text="@string/menu_string"
-        android:textColor="@color/textColour"
-        android:textSize="18sp"
-        android:gravity="center"
-        android:background="@drawable/menu_rectangle_default"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/date" />
-
-    <TextView
-        android:id="@+id/deal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:gravity="center"
-        android:text="@string/deal_string"
-        android:textColor="@color/textColour"
-        android:textSize="18sp"
-        android:background="@drawable/menu_rectangle_default"
-        app:layout_constraintStart_toEndOf="@id/menu"
-        app:layout_constraintEnd_toStartOf="@id/card"
-        app:layout_constraintBaseline_toBaselineOf="@id/menu"
-        tools:layout_editor_absoluteX="92dp" />
-
-    <TextView
-        android:id="@+id/card"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/card_string"
-        android:textColor="@color/textColour"
-        android:textSize="18sp"
-        android:gravity="center"
-        android:background="@drawable/menu_rectangle_default"
-        app:layout_constraintStart_toEndOf="@id/deal"
-        app:layout_constraintEnd_toStartOf="@id/parking"
-        app:layout_constraintBaseline_toBaselineOf="@id/menu"
-        tools:layout_editor_absoluteX="183dp" />
-
-    <TextView
-        android:id="@+id/parking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/parking_string"
-        android:textColor="@color/textColour"
-        android:textSize="18sp"
-        android:gravity="center"
-        android:layout_marginEnd="40dp"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:background="@drawable/menu_rectangle_default"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBaseline_toBaselineOf="@id/menu"/>
-
-
-
-<!--    <TextView-->
-<!--        android:id="@+id/support"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginEnd="126dp"-->
-<!--        android:layout_marginStart="126dp"-->
-<!--        android:layout_marginBottom="30dp"-->
-<!--        android:textColor="@color/textColour"-->
-<!--        android:textSize="14sp"-->
-<!--        android:text="@string/support_string"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        />-->
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
+    android:fillViewport="true">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator_layout_main"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:layout_marginTop="35dp"
-        app:layout_anchor="@id/root_screen"
-        app:layout_anchorGravity="bottom"
-        android:layout_gravity="bottom"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        android:layout_height="wrap_content"
+        android:background="@color/background">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/root_screen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:paddingBottom="35dp"
+            tools:context=".presentation.mainpage.MainPageActivity">
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="67dp"
+                android:gravity="top"
+                android:text="@string/hello"
+                android:textColor="@color/textColour"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/discount"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="67dp"
+                android:gravity="top"
+                android:text="@string/discount"
+                android:textColor="@color/textColour"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/name" />
+
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="67dp"
+                android:gravity="top"
+                android:textColor="@color/textColour"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/discount" />
+
+
+            <TextView
+                android:id="@+id/menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="29dp"
+                android:text="@string/menu_string"
+                android:textColor="@color/textColour"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:background="@drawable/menu_rectangle_default"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/date" />
+
+            <TextView
+                android:id="@+id/deal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="@string/deal_string"
+                android:textColor="@color/textColour"
+                android:textSize="18sp"
+                android:background="@drawable/menu_rectangle_default"
+                app:layout_constraintStart_toEndOf="@id/menu"
+                app:layout_constraintEnd_toStartOf="@id/card"
+                app:layout_constraintBaseline_toBaselineOf="@id/menu"
+                tools:layout_editor_absoluteX="92dp" />
+
+            <TextView
+                android:id="@+id/card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="@string/card_string"
+                android:textColor="@color/textColour"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:background="@drawable/menu_rectangle_default"
+                app:layout_constraintStart_toEndOf="@id/deal"
+                app:layout_constraintEnd_toStartOf="@id/parking"
+                app:layout_constraintBaseline_toBaselineOf="@id/menu"
+                tools:layout_editor_absoluteX="183dp" />
+
+            <TextView
+                android:id="@+id/parking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="@string/parking_string"
+                android:textColor="@color/textColour"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:layout_marginEnd="40dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:background="@drawable/menu_rectangle_default"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBaseline_toBaselineOf="@id/menu"/>
+
+
+
+            <!--    <TextView-->
+            <!--        android:id="@+id/support"-->
+            <!--        android:layout_width="0dp"-->
+            <!--        android:layout_height="wrap_content"-->
+            <!--        android:layout_marginEnd="126dp"-->
+            <!--        android:layout_marginStart="126dp"-->
+            <!--        android:layout_marginBottom="30dp"-->
+            <!--        android:textColor="@color/textColour"-->
+            <!--        android:textSize="14sp"-->
+            <!--        android:text="@string/support_string"-->
+            <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--        app:layout_constraintEnd_toEndOf="parent"-->
+            <!--        app:layout_constraintStart_toStartOf="parent"-->
+            <!--        />-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:layout_marginTop="35dp"
+            app:layout_anchor="@id/root_screen"
+            app:layout_anchorGravity="bottom"
+            android:layout_gravity="bottom"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</ScrollView>
