@@ -13,4 +13,5 @@
     <color name="dark_background_item">#010101</color>
     <color name="card_pop_up_background">#1f2023</color>
     <color name="menu_item">#B31A1B1E</color>
+    <color name="none_color">#00000000</color>
 </resources>

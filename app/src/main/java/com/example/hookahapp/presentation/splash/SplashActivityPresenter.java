@@ -17,11 +17,7 @@ public class SplashActivityPresenter extends MvpPresenter<SplashActivityView> {
     }
 
     void chooseActivity(){
-        if (interactor.firstRun()) {
-            interactor.saveFirstrun();
-            getViewState().startOnBoarding();
-        }
-        else if(interactor.checkedAuthedOrNot()){
+        if(interactor.checkedAuthedOrNot()){
             getViewState().startMain();
         }
         else getViewState().startRegAuth();

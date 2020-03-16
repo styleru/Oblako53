@@ -67,4 +67,8 @@ public class Interactor{
         return cardRepository.getCurrentDiscount();
     }
 
+    public void exitProfile(){
+        this.sharedPreferencesRepository.exitProfile();
+    }
+
 }

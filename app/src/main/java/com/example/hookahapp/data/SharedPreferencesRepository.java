@@ -52,4 +52,11 @@ public class SharedPreferencesRepository implements ISharedPreferencesRepository
     public boolean checkAuth(){
         return sharedPreferences.getBoolean(authed, false);
     }
+
+    @Override
+    public void exitProfile() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(this.authed, false);
+        editor.apply();
+    }
 }

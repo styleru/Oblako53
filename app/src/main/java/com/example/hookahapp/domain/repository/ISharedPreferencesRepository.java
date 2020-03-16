@@ -8,4 +8,5 @@ public interface ISharedPreferencesRepository {
     boolean checkFirstRun();
     void setNotFirstRun();
     boolean checkAuth();
+    void exitProfile();
 }

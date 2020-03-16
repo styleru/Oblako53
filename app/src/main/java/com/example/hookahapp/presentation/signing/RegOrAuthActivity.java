@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hookahapp.App;
 import com.example.hookahapp.R;
+import com.example.hookahapp.domain.Interactor;
 import com.example.hookahapp.presentation.signing.authorisation.AuthorisationActivity;
 import com.example.hookahapp.presentation.signing.registration.RegistrationActivity1;
 
@@ -22,12 +23,16 @@ public class RegOrAuthActivity extends AppCompatActivity {
     @Inject
     Context appContext;
 
+    @Inject
+    Interactor interactor;
+
     @Override
     public void onCreate(Bundle savedInstanceStated) {
         super.onCreate(savedInstanceStated);
         setContentView(R.layout.activity_onboarding_4);
         ButterKnife.bind(this);
         Toothpick.inject(this, Toothpick.openScope(App.class));
+        interactor.exitProfile();
     }
 
     @OnClick(R.id.register)

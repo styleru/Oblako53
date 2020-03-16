@@ -28,6 +28,7 @@ class SingleMenuItemFragment : BottomSheetDialogFragment() {
         const val SNACKS = "snacks"
         const val BAR = "bar"
         const val COCKTAILS = "cocktails"
+        const val EXIT = "exit"
 
         fun newInstance(key: String) : SingleMenuItemFragment{
             val bundle = Bundle()

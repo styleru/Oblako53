@@ -1,17 +1,20 @@
 package com.example.hookahapp.presentation.mainpage.fragments.card
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hookahapp.R
 import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.BAR
 import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.BEVERAGE
 import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.COCKTAILS
 import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.DESSERTS
+import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.EXIT
 import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.HOOKAH
 import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.JAPANESE_KITCHEN
 import com.example.hookahapp.presentation.mainpage.SingleMenuItemFragment.Companion.PIZZA
@@ -20,7 +23,7 @@ import com.example.hookahapp.presentation.mainpage.fragments.MenuCallback
 
 class MenuAdapter(val callback: MenuCallback) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     val items = arrayListOf(R.string.contacts, R.string.hookah, R.string.pizza, R.string.desserts,
-            R.string.japanese_kitchen, R.string.beverages, R.string.snacks, R.string.bar, R.string.coctails)
+            R.string.japanese_kitchen, R.string.beverages, R.string.snacks, R.string.bar, R.string.coctails, R.string.exit)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val holder = if (viewType == 1)
             MenuViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.menu_item, parent, false))
@@ -48,6 +51,7 @@ class MenuAdapter(val callback: MenuCallback) : RecyclerView.Adapter<RecyclerVie
                 6 -> callback.onMenuItemClicked(SNACKS)
                 7 -> callback.onMenuItemClicked(BAR)
                 8 -> callback.onMenuItemClicked(COCKTAILS)
+                9 -> callback.onMenuItemClicked(EXIT)
                 else -> throw Exception("индекс аут оф баундc эксепшн епта")
             }
         }
@@ -71,12 +75,20 @@ class MenuAdapter(val callback: MenuCallback) : RecyclerView.Adapter<RecyclerVie
         }
         else {
             holder as MenuViewHolder
+            if (items[position] == R.string.exit) {
+                holder.menuCardView.setBackgroundColor(Color.TRANSPARENT)
+                holder.menuTextView.visibility = View.INVISIBLE
+                holder.menuExitRextView.visibility = View.VISIBLE
+                holder.menuExitRextView.setText(items[position])
+            }
             holder.menuTextView.text = holder.menuTextView.context.getText(items[position]) // вытаскиваем контекст через жопу
         }
     }
 
     class MenuViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        val menuCardView: CardView = itemView.findViewById(R.id.menuCardView)
         val menuTextView : TextView = itemView.findViewById(R.id.menuSingleTextView)
+        val menuExitRextView: TextView = itemView.findViewById(R.id.menuSingleExitTextView)
     }
 
     class MenuImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
