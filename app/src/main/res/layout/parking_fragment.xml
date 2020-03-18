@@ -49,7 +49,7 @@
                 android:alpha="0.7"
                 />
             <TextView
-                android:id="@+id/deal_item_text"
+                android:id="@+id/parking_item_text"
                 android:layout_height="wrap_content"
                 android:paddingStart="14dp"
                 android:paddingTop="6dp"

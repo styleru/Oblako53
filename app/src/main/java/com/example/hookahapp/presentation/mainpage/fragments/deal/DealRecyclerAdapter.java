@@ -21,7 +21,6 @@ import javax.inject.Inject;
 public class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapter.ViewHolder> {
 
     private List<DealDTO> data = new ArrayList<>();
-    private RecyclerItemClickListener clickListener;
 
     @NonNull
     @Override
@@ -73,8 +72,7 @@ public class DealRecyclerAdapter extends RecyclerView.Adapter<DealRecyclerAdapte
     }
 
     @Inject
-    public DealRecyclerAdapter(RecyclerItemClickListener clickListener){
-        this.clickListener = clickListener;
+    public DealRecyclerAdapter(){
     }
 
     @Override

@@ -1,7 +1,6 @@
 package com.example.hookahapp.presentation.mainpage.fragments.deal;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,9 +20,6 @@ import com.arellomobile.mvp.presenter.ProvidePresenter;
 import com.example.hookahapp.App;
 import com.example.hookahapp.R;
 import com.example.hookahapp.domain.entities.DealDTO;
-import com.example.hookahapp.presentation.deal.DealActivity;
-
-import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -72,11 +68,7 @@ public class DealFragment extends MvpAppCompatFragment implements DealFragmentVi
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        adapter = new DealRecyclerAdapter((v,position)->{
-            Intent intent = new Intent(appContext, DealActivity.class);
-            intent.putExtra("deal", Parcels.wrap(adapter.getDeal(position)));
-            startActivity(intent);
-        });
+        adapter = new DealRecyclerAdapter();
 
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
