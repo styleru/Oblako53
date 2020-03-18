@@ -26,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/card_root_screen"
+        android:id="@+id/deal_root_screen"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
