@@ -24,7 +24,7 @@
         android:text="@string/enter_password_string"
         android:textSize="32sp"
         android:textColor="@color/textColour"
-        android:layout_marginEnd="127dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="64dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,8 @@
         android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@id/enter_password"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        android:importantForAutofill="no" />
 
     <TextView
         android:id="@+id/continue_registration_2"
@@ -53,7 +54,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="125dp"
         android:gravity="center"
         android:paddingBottom="15dp"
         android:paddingTop="18dp"
@@ -62,6 +62,9 @@
         android:text="@string/continue_string"
         android:textColor="@color/darkTextColor"
         android:textSize="16sp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/reg_password_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

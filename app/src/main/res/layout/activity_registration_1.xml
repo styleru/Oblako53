@@ -26,7 +26,7 @@
         android:text="@string/enter_telephone_mail_string"
         android:textSize="32sp"
         android:textColor="@color/textColour"
-        android:layout_marginEnd="127dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="64dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +47,8 @@
         android:inputType="phone"
         app:layout_constraintTop_toBottomOf="@id/enter_telephone"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/reg_mail_edit"
@@ -64,7 +65,8 @@
         android:inputType="textEmailAddress"
         app:layout_constraintTop_toBottomOf="@id/reg_telephone_edit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:importantForAutofill="no" />
 
     <TextView
         android:id="@+id/continue_registration_1"
@@ -72,15 +74,17 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="128dp"
-        android:gravity="center"
         android:background="@drawable/onboarding_rectangle"
         android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center"
         android:text="@string/continue_string"
         android:textColor="@color/darkTextColor"
         android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/reg_mail_edit"
+        android:layout_marginTop="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reg_mail_edit"
+        app:layout_constraintVertical_bias="0.30" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
