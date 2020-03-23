@@ -27,7 +27,6 @@ import toothpick.Toothpick;
 
 public class ParkingActivity extends MvpAppCompatActivity implements ParkingActivityView{
 
-    @Inject
     @InjectPresenter
     ParkingActivityPresenter presenter;
 
