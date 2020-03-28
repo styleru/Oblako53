@@ -44,7 +44,7 @@ public class AuthRepository implements IAuthRepository {
 
     @Override
     public Completable checkAuth(String username, String password) {
-        return userAPI.getUserData(basicAuthString.createKeyFromString(username, password))
+        return userAPI.getUserData(basicAuthString.getKey(username, password))
                 .ignoreElement()
                 .andThen(Completable.fromAction(()->
                         preferencesRepository.saveUserInfo(username, password)));
